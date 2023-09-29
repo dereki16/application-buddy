@@ -25,7 +25,6 @@ $(document).ready(function() {
 
 //   // Determine the element type
 //   const elementType = $(`#info${sectionId}`).prop('tagName');
-//   console.log(elementType);
   
 //   // Save to localStorage
 //   localStorage.setItem(`header${sectionId}`, header);
@@ -85,16 +84,13 @@ $(document).ready(function() {
 // Handle edit button
 $(document).on('click', '.editBtn', function() {
   const committedDiv = $(this).parent('.committed');
-  console.log("committed div: " + committedDiv);
   const text = committedDiv.find('p').text();
   const originalType = committedDiv.data('type'); // get the original type from data attribute
   let newElement;
   if (originalType === 'textarea') {
     newElement = `<textarea class="form-control">${text}</textarea>`;
-    console.log("text");
   } else {
     newElement = `<input type="text" class="form-control" value="${text}"/>`;
-    console.log("p");
   }
   committedDiv.replaceWith(newElement);
 });
@@ -135,10 +131,8 @@ $(document).ready(function() {
       let infoElement;
       if (savedType === 'textarea') {
         infoElement = `<p class="textarea">${savedInfo}</p>`;
-        console.log("txtareaa");
       } else {
         infoElement = `<p class="period">${savedInfo}</p>`;
-        console.log("p here");
       }
 
       const committedSection = `
@@ -163,9 +157,7 @@ $(document).ready(function() {
   // On page load, replace input fields with committed text
   $('input, textarea').each(function() {
     const id = $(this).attr('id');
-    console.log("id: " + id);
     const savedValue = localStorage.getItem(id);
-    console.log("value: " + savedValue);
     const savedType = localStorage.getItem(`type${id}`); // Retrieve the saved type
 
     if (savedValue) {
