@@ -13052,6 +13052,11 @@ textarea:focus {
   #clearButton {
     width: 50%;
 }
+  .committed p {
+  max-width: 75vw; /* Set to the maximum width you want */
+  word-wrap: break-word; /* Breaks the words to prevent overflow */
+  overflow-wrap: break-word; /* Same as word-wrap, but better compatibility */
+}
 }
 
 
