@@ -13015,7 +13015,7 @@ textarea:focus {
 }
 
 
-.job-reference-card {
+#jobRefContainer {
   padding-bottom: 5px;
 }
 
@@ -13046,6 +13046,9 @@ textarea:focus {
   #jobInfoContainer, #jobRefContainer, #linksContainer, #personalInfoContainer {
     padding: 0px;
   }
+  #jobRefContainer {
+  padding-bottom: 5px;
+}
   .navbar-brand {
   font-size:5vw;
 }
