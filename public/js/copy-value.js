@@ -6,8 +6,6 @@ $(document).ready(function() {
   const inputs = $('input');
 
   function copyToClipboard(text, committedElem) {
-    console.log("copyToClipboard is called");
-
     const textarea = document.createElement("textarea");
     textarea.value = text;
     document.body.appendChild(textarea);
@@ -25,7 +23,6 @@ $(document).ready(function() {
     notification.classList.remove('hidden');
 
     setTimeout(() => {
-      console.log("Hiding notification");
       notification.classList.add('hidden');
     }, 2000);
   }
