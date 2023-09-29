@@ -13029,6 +13029,12 @@ textarea:focus {
   color: red;
 }
 
+@media (min-width: 1200px) {
+  .col-12 {
+    width: 50%;
+  }
+}
+
 @media (max-width: 1000px) {
   .col-12, .page-section, .portfolio, section, .container, #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container{
     width: 100%!important;
@@ -13037,7 +13043,7 @@ textarea:focus {
   #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container {
     margin: 0px;
   }
-  #jobInfoContainer, #jobRefContainer {
+  #jobInfoContainer, #jobRefContainer, #linksContainer, #personalInfoContainer {
     padding: 0px;
   }
   .navbar-brand {
