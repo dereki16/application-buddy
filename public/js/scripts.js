@@ -58,12 +58,18 @@ $(document).ready(function() {
 
 
 
-
 // Handle edit button
 $(document).on('click', '.editBtn', function() {
   const committedDiv = $(this).parent('.committed');
   const text = committedDiv.find('p').text();
-  committedDiv.replaceWith(`<input type="text" value="${text}"/>`);
+  const originalType = committedDiv.data('type'); // get the original type from data attribute
+  let newElement;
+  if (originalType === 'textarea') {
+    newElement = `<textarea>${text}</textarea>`;
+  } else {
+    newElement = `<input type="text" value="${text}"/>`;
+  }
+  committedDiv.replaceWith(newElement);
 });
 
 // Add a job info card
@@ -150,6 +156,7 @@ function clearFormData() {
   document.querySelectorAll('input, textarea').forEach(input => {
     input.value = '';
   });
+  location.reload(true);
 }
 
 // Assuming you have a clear button with an id of 'clearButton'

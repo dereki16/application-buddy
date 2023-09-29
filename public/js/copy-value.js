@@ -29,9 +29,8 @@ $(document).ready(function() {
       notification.classList.add('hidden');
     }, 2000);
   }
-
-  $(document).on('keypress', 'input', function(e) {
-    if ($(this).hasClass('no-enter') && e.which == 13) {
+  $(document).on('keydown', 'input, textarea', function(e) {
+    if (e.which == 13 && !e.shiftKey && $(this).hasClass('no-enter')) { // Check if Enter was pressed without Shift
       e.preventDefault(); 
       $(this).closest('.form-group').nextAll('.form-group:first').find('input').focus();
       return; 
@@ -39,7 +38,8 @@ $(document).ready(function() {
     if (e.which == 13) {
       e.preventDefault();
       const value = $(this).val();
-      $(this).replaceWith(`<div class="committed"><p>${value}</p> <button class="btn btn-secondary editBtn">Edit</button></div>`);
+      const elementType = this.tagName.toLowerCase(); // get the tag name of the current element
+      $(this).replaceWith(`<div class="committed" data-type="${elementType}"><p>${value}</p> <button style="color:yellow;" class="btn btn-secondary editBtn">Edit</button></div>`);
       currentInputIndex += 1;
       if (currentInputIndex < inputs.length) {
         $(inputs[currentInputIndex]).focus();

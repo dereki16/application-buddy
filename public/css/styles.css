@@ -13001,3 +13001,29 @@ input {
   padding: 20px;
   border: 1px solid #ddd;
 }
+
+/* Add this to your CSS file */
+
+input[type="text"],
+textarea {
+  width: 100%; /* Ensuring that input and textarea take 100% width of their container */
+  margin-bottom: 10px; /* Providing some space below each element */
+  font-size: 16px; /* Setting a readable font size */
+  box-sizing: border-box; /* Ensuring padding and border are included in the element's total width and height */
+}
+
+textarea {
+  height: 100px; /* Setting a fixed height for textarea */
+  resize: vertical; /* Allowing vertical resizing of textarea */
+  padding: 10px;
+
+}
+
+/* Additional styles for focused elements */
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #4CAF50; /* Changing border color on focus */
+  outline: none; /* Removing the default outline on focus */
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
+}
+
