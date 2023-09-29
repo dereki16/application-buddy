@@ -13010,6 +13010,8 @@ textarea {
   margin-bottom: 10px; /* Providing some space below each element */
   font-size: 16px; /* Setting a readable font size */
   box-sizing: border-box; /* Ensuring padding and border are included in the element's total width and height */
+  border: 1px solid #ccc; /* Adding a border to the elements */
+  border-radius: 8px;
 }
 
 textarea {
@@ -13027,3 +13029,76 @@ textarea:focus {
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
 }
 
+
+.committed:hover {
+  background-color:rgba(62, 188, 157, 0.25);
+  border-radius: 8px;
+  padding: 1px;
+  transition: .2s;
+}
+
+/*
+ debugging
+ .init-btn {
+  color: yellow;
+}
+.post-refresh-btn {
+  color: blue;
+}
+.new-sec-btn {
+  color: green;
+} */
+
+.init-btn, .post-refresh-btn, .new-sec-btn {
+  color: white;
+}
+
+.committed p {
+  max-width: 30vw; /* Set to the maximum width you want */
+  word-wrap: break-word; /* Breaks the words to prevent overflow */
+  overflow-wrap: break-word; /* Same as word-wrap, but better compatibility */
+}
+
+#socials {
+  transition: all 0.3s ease-in-out;
+}
+
+.job-reference-card {
+  padding-bottom: 5px;
+}
+
+#clearButton {
+    border: 2px solid #ffee00d6;
+  background-color: rgba(62, 188, 157, 0.2);
+}
+#clearButton:hover {
+  background-color: #2e4050;
+  border: 2px solid red;
+  color: red;
+}
+
+@media (max-width: 500px) {
+  .col-12 {
+    width: 95%;
+  }
+  #jobInfoContainer, #jobRefContainer {
+    padding: 0;
+  }
+  .navbar-brand {
+  font-size:5vw;
+}
+  #clearButton {
+    width: 50%;
+}
+}
+
+
+@media (max-width: 250px) {
+    .navbar-brand {
+  font-size:1vh;
+}
+}
+
+.copyright .container  {
+  color: #6f93b5;
+}

@@ -29,20 +29,21 @@ $(document).ready(function() {
       notification.classList.add('hidden');
     }, 2000);
   }
-  $(document).on('keydown', 'input, textarea', function(e) {
-    if (e.which == 13 && !e.shiftKey && $(this).hasClass('no-enter')) { // Check if Enter was pressed without Shift
-      e.preventDefault(); 
-      $(this).closest('.form-group').nextAll('.form-group:first').find('input').focus();
-      return; 
-    }
-    if (e.which == 13) {
+  $(document).on('keydown', ':input', function (e) {
+    const inputs = $(':input:visible');
+    const currentIndex = inputs.index(this);
+
+    if (e.which == 13 && !e.shiftKey) { // Check if Enter was pressed without Shift
       e.preventDefault();
-      const value = $(this).val();
-      const elementType = this.tagName.toLowerCase(); // get the tag name of the current element
-      $(this).replaceWith(`<div class="committed" data-type="${elementType}"><p>${value}</p> <button style="color:yellow;" class="btn btn-secondary editBtn">Edit</button></div>`);
-      currentInputIndex += 1;
-      if (currentInputIndex < inputs.length) {
-        $(inputs[currentInputIndex]).focus();
+
+      // If it's an input or textarea, handle it
+      if ($(this).is('input, textarea')) {
+        const value = $(this).val();
+        const elementType = this.tagName.toLowerCase(); // get the tag name of the current element
+        $(this).replaceWith(`<div class="committed" data-type="${elementType}"><p>${value}</p> <button class="btn btn-secondary editBtn init-Btn">Edit</button></div>`);
+      }
+      if (currentIndex + 1 < inputs.length) {
+        inputs.eq(currentIndex + 1).focus();
       }
     }
   });
