@@ -698,55 +698,6 @@ progress {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
-
-  .container-sm,
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 1140px;
-  }
-}
-
-@media (min-width: 1400px) {
-
-  .container-xxl,
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 1320px;
-  }
-}
 
 .row {
   --bs-gutter-x: 1.5rem;
@@ -13063,6 +13014,7 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
 }
 
+
 .job-reference-card {
   padding-bottom: 5px;
 }
@@ -13077,12 +13029,16 @@ textarea:focus {
   color: red;
 }
 
-@media (max-width: 500px) {
-  .col-12 {
-    width: 95%;
+@media (max-width: 1000px) {
+  .col-12, .page-section, .portfolio, section, .container, #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container{
+    width: 100%!important;
+    
+  }
+  #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container {
+    margin: 0px;
   }
   #jobInfoContainer, #jobRefContainer {
-    padding: 0;
+    padding: 0px;
   }
   .navbar-brand {
   font-size:5vw;
