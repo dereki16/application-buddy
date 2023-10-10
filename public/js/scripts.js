@@ -1,203 +1,203 @@
-$(document).ready(function() {
-  let sectionCount = 0;
-
-  // $('body').on('click', '.addSectionBtn', function() {
-  //   sectionCount++;
-    
-  //   const newSection = `
-  //     <div class="added-section" id="section${sectionCount}">
-  //         <label for="header${sectionCount}">Header:</label>
-  //         <input type="text" id="header${sectionCount}" class="form-control">
-  //         <label for="info${sectionCount}">Information:</label>
-  //         <textarea id="info${sectionCount}" class="form-control"></textarea>
-  //         <button class="btn btn-secondary mt-2 commitBtn" data-section-id="${sectionCount}">Commit</button>
-  //     </div>
-  //   `;
-  //   $(this).closest('.col-12').find('.sectionsContainer').append(newSection);
-  //   localStorage.setItem('sectionCount', sectionCount);
-
-  // });
-
-  // This function will handle committing the section
-// function commitSection(sectionId) {
-//   const header = $(`#header${sectionId}`).val();
-//   const info = $(`#info${sectionId}`).val();
-
-//   // Determine the element type
-//   const elementType = $(`#info${sectionId}`).prop('tagName');
-  
-//   // Save to localStorage
-//   localStorage.setItem(`header${sectionId}`, header);
-//   localStorage.setItem(`info${sectionId}`, info);
-//   localStorage.setItem(`type${sectionId}`, elementType); // store the type here
-
-//   $(`#section${sectionId}`).html(`
-//     <div class="committed-section" id="committedSection${sectionId}">
-//         <label>${header}:</label>
-//         <div style="display: flex; justify-content: space-between; align-items: center;">
-//             <p>${info}</p>
-//             <button style="color:green;" class="btn btn-secondary editSectionBtn new-btn" data-section-id="${sectionId}">Edit</button>
-//         </div>
-//     </div>
-//   `);
-// }
-
-
-// Handle click event for committing section
-// $('body').on('click', '.commitBtn', function() {
-//   const sectionId = $(this).data('section-id');
-//   commitSection(sectionId);
-// });
-
-// Handle Enter key press in textarea
-// $('body').on('keypress', 'textarea', function(e) {
-//   if (e.which === 13) { // 13 is the Enter key code
-//     e.preventDefault(); // Prevent the default action of Enter key
-//     const sectionId = $(this).attr('id').replace('info', '');
-//     commitSection(sectionId);
-//   }
-// });
-
-  // this section has to do with edit button for Newly Added sections
-  // Handle edit button
-//   $('body').on('click', '.editSectionBtn', function() {
-//   const sectionId = $(this).data('section-id');
-//   // Fetch from localStorage
-//   const savedHeader = localStorage.getItem(`header${sectionId}`);
-//   const savedInfo = localStorage.getItem(`info${sectionId}`);
-//   $(`#section${sectionId}`).replaceWith(`
-//     <div class="added-section" id="section${sectionId}">
-//         <label for="header${sectionId}">Header:</label>
-//         <input type="text" id="header${sectionId}" class="form-control" value="${savedHeader}">
-//         <label for="info${sectionId}">Information:</label>
-//         <textarea id="info${sectionId}" class="form-control">${savedInfo}</textarea>
-//         <button class="btn btn-secondary mt-2 commitBtn" data-section-id="${sectionId}">Commit</button>
-//     </div>
-//   `);
-// });
-// });
-});
-
-
-
-
-// Handle edit button
-$(document).on('click', '.editBtn', function() {
-  const committedDiv = $(this).parent('.committed');
-  const text = committedDiv.find('p').text();
-  const originalType = committedDiv.data('type'); // get the original type from data attribute
-  let newElement;
-  if (originalType === 'textarea') {
-    newElement = `<textarea class="form-control">${text}</textarea>`;
-  } else {
-    newElement = `<input type="text" class="form-control" value="${text}"/>`;
-  }
-  committedDiv.replaceWith(newElement);
-});
-
-// // Add a job info card
-// $(document).ready(function() {
-//   $('#addJobInfoBtn').on('click', function() {
-//     const newJobInfoCard = $('.job-info-card').first().clone();
-//     $('#jobInfoContainer').append(newJobInfoCard);
-//   });
-// });
-
-// // Add a reference card
-// $(document).ready(function() {
-//   $('#addReferenceBtn').on('click', function() {
-//     const newReferenceCard = $('.job-reference-card').first().clone();
-//     $('#jobRefContainer').append(newReferenceCard);
-//   });
-// });
-
-window.onload = function() {
-  document.querySelectorAll('input, textarea').forEach(input => {
-    const savedValue = localStorage.getItem(input.id);
-    if (savedValue) {
-      input.value = savedValue;
-    }
-  });
-
-  // Call this function on page load to re-populate your fields
-$(document).ready(function() {
-  let sectionCount = localStorage.getItem('sectionCount') || 0;
-  for (let i = 1; i <= sectionCount; i++) {
-    const savedHeader = localStorage.getItem(`header${i}`);
-    const savedInfo = localStorage.getItem(`info${i}`);
-    const savedType = localStorage.getItem(`type${i}`); // retrieve the saved type
-
-    if (savedHeader && savedInfo) {
-      let infoElement;
-      if (savedType === 'textarea') {
-        infoElement = `<p class="textarea">${savedInfo}</p>`;
-      } else {
-        infoElement = `<p class="period">${savedInfo}</p>`;
-      }
-
-      const committedSection = `
-        <div class="committed-section" id="committedSection${i}" data-type="${savedType}">
-            <label>${savedHeader}:</label>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                ${infoElement}
-                <button class="btn btn-secondary editSectionBtn new-sec-button" data-section-id="${i}">Edit</button>
-            </div>
-        </div>
-      `;
-      $('.sectionsContainer').append(committedSection);
-    }
-  }
-});
-};
-
-
-
-
-$(document).ready(function() {
   // On page load, replace input fields with committed text
+$(document).ready(function() {
   $('input, textarea').each(function() {
     const id = $(this).attr('id');
     const savedValue = localStorage.getItem(id);
     const savedType = localStorage.getItem(`type${id}`); // Retrieve the saved type
 
-    if (savedValue) {
+    if ($(this).closest('#chatBot').length === 0 && savedValue) { 
       $(this).replaceWith(`
         <div class="committed" data-type="${savedType}">
-          <p class="${savedType === 'textarea' ? 'textarea' : 'period'}">${savedValue}</p>
+          <p id="${id}">${savedValue}</p> 
           <button class="btn btn-secondary editBtn post-refresh-btn">Edit</button>
         </div>
       `);
+    } else if ($(this).closest('#chatBot').length != 0) {
+      $(this).replaceWith(`
+
+      <div id="inputArea">
+      <textarea type="text" class="form-control" id="userInput" placeholder="Type a message..."></textarea>
+      
+  </div>
+  `);
     }
   });
 });
 
+// Handle edit button on regular conditions
+$(document).on('click', '.editBtn', function() {
+  console.log("edit pressed");
+  const committedDiv = $(this).parent('.committed');
+  const text = committedDiv.find('p').text();
+  const originalType = committedDiv.data('type'); 
+  let newElement;
+  const textElement = committedDiv.find('p');
+  const id = textElement.attr('id');
+  const value = localStorage.getItem(id);
 
-
-
-
-
-
-
-
-// Helps set up newly added inputs
-// Use event delegation to handle input event
-$(document).on('input', 'input, textarea', function() {
-  const id = $(this).attr('id');
-  const type = this.tagName.toLowerCase();
-  localStorage.setItem(id, $(this).val());
-  localStorage.setItem(`type${id}`, type); // store the type here
+  if (originalType === 'textarea') {
+    newElement = `<textarea class="form-control">${text}</textarea>`;
+  } else if (originalType === 'label') {
+    console.log("Label detected");
+    const text = committedDiv.find('p').text();
+    const id = committedDiv.find('p').attr('id');
+    const newElement = `<input type="text" class="form-control label committable" value="${text}"/>`;
+    committedDiv.replaceWith(newElement);
+  }
+   else {
+    newElement = `<input id="${id}" type="text" class="form-control committable" value="${text}"/>`;
+    console.log("else activated");
+  }
+  localStorage.setItem(id, value);
+  committedDiv.replaceWith(newElement);
 });
 
+// Handle edit button for committed labels
+$(document).on('click', '.editBtn', function() {
+  const committedDiv = $(this).parent('.committed-section');
+  const text = committedDiv.find('p').text();
+  const originalType = committedDiv.data('type'); // get the original type from data attribute
+  let newElement;
+  const textElement = committedDiv.find('p');
+  const id = textElement.attr('id');
+  const value = localStorage.getItem(id);
 
+  newElement = `<input id="${id}" type="text" class="form-control committableLabel" value="${text}"/>`;
+  console.log("else activated");
+  localStorage.setItem(id, value);
+  committedDiv.replaceWith(newElement);
+});
 
-// Function to clear all data from the form and localStorage
+window.onload = function() {
+  document.querySelectorAll('input, textarea').forEach(input => {
+    if(input.id !== "userInput") {  // Exclude userInput from being loaded
+      const savedValue = localStorage.getItem(input.id);
+      if (savedValue) {
+          input.value = savedValue;
+      }
+    }
+  });
+};
+
+// Set certain inputs to storage
+$(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not(#chatBot input):not(#container-contact input):not(#container-contact textarea), textarea', function() {
+  const id = $(this).attr('id');
+  const type = this.tagName.toLowerCase() + ($(this).attr('type') ? ':' + $(this).attr('type') : '');
+  localStorage.setItem(id, $(this).val());
+  localStorage.setItem(`type${id}`, type);
+  console.log("input type " + type);
+});
+
+  // Clear input values from localStorage when the form is submitted
+$('#container-contact form').on('submit', function() {
+  $('input, textarea', this).each(function() {
+      const id = $(this).attr('id');
+      localStorage.removeItem(id);
+      localStorage.removeItem(`type${id}`);
+
+      $(this).val("");
+  });
+});
+
+// Function to clear all data from localStorage except chat log
 function clearFormData() {
+  var myItem = localStorage.getItem('chatMessages');
   localStorage.clear();
+  localStorage.setItem('chatMessages', myItem);
   document.querySelectorAll('input, textarea').forEach(input => {
     input.value = '';
   });
   location.reload(true);
 }
-
-// Assuming you have a clear button with an id of 'clearButton'
 document.getElementById('clearButton').addEventListener('click', clearFormData);
+
+// On page load, replace input fields in answersContainer with committed text and labels
+$('input, textarea, .committedLabel').each(function() {
+  const id = $(this).attr('id');
+  const savedValue = localStorage.getItem(id);
+  const savedType = localStorage.getItem(`type${id}`); // Retrieve the saved type
+  const defaultQ1 = 'Have you used REST APIs? Which ones?';
+  const defaultQ2 = 'Do you have experience with CI/CD? If so, which?';
+
+  if (savedValue) {
+    if ($(this).hasClass('committedLabel')) {
+      // Check if the div is empty
+      if ($(this).children().length === 0) {
+        const pElement = $(this).find('p');
+        const pValue = pElement.text();
+
+        if (!pValue) {
+          if (pElement.attr('id') === 'label1') {
+              pElement.text(defaultQ1);
+          } else if (pElement.attr('id') === 'label2') {
+              pElement.text(defaultQ2);
+          }
+        }
+      }
+
+    } if ($(this).parents('#chatBot').length > 0) {
+      $(this).replaceWith(`
+          <input placeholder="Type a message..." id="${id}"></input> 
+      `);
+    } 
+  }
+});
+
+$(document).ready(function() {
+
+  // Handle Edit button click for labels with class committedLabel
+  $(document).on('click', '.committedLabel .editBtn', function() {
+      const committedLabelDiv = $(this).parent('.committedLabel');
+      const labelText = committedLabelDiv.find('p').text();
+      const id = committedLabelDiv.find('p').attr('id');
+      
+      const newInputElement = `<input id="${id}" type="text" class="form-control label" value="${labelText}"/>`;
+      
+      // Replace the committed label with the new input element
+      committedLabelDiv.replaceWith(newInputElement);
+  });
+
+  $(document).on('keydown', '#answersContainer input', function(e) {
+    if (e.which == 13) { // 13 is for Enter key
+        e.preventDefault();
+
+        const value = $(this).val();
+        const id = $(this).attr('id');
+        let pClass = "label"; // Default class
+
+        // If the input id is either question1 or question2, add the 'committed' class
+        if (id === 'question1' || id === 'question2') {
+            pClass += " committed";
+        }
+
+        if (value === "") {
+          console.log("null");
+        }
+
+        const committedLabelElement = `
+            <div class="committedLabel" data-type="label">
+                <div>
+                  <p class="${pClass}" tabindex="0">${value}</p>
+                </div>
+                <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+            </div>
+        `;
+
+        // Save to localStorage
+        localStorage.setItem(id, value);
+
+        // Replace the input element with the new committed label
+        $(this).replaceWith(committedLabelElement);
+    }
+});
+
+  // Load committed labels from localStorage on page load
+  $('#answersContainer .committedLabel p').each(function() {
+      const id = $(this).attr('id');
+      const savedValue = localStorage.getItem(id);
+
+      if (savedValue) {
+        $(this).text(savedValue);
+      }
+  });
+});

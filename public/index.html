@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <meta name="description" content="Application Buddy: Making your job search easier by simplifying the application process. Create your personalized application buddy today!" />
+  <meta name="description" content="Application Bud: Making your job search easier by simplifying the application process. Create your personalized application bud today!" />
   <meta name="author" content="Derek Iniguez" />
   <meta name="keywords" content="Job Application, Application Helper, Job Search, Easy Applications">
 
   <!-- For Facebook OpenGraph -->
-  <meta property="og:title" content="Application Buddy">
-  <meta property="og:description" content="Application Buddy: Making your job search easier by simplifying the application process. Create your personalized application buddy today!">
+  <meta property="og:title" content="Application Bud">
+  <meta property="og:description" content="Application Bud: Making your job search easier by simplifying the application process. Create your personalized application bud today!">
   <meta property="og:image" content="https://application-bud.web.app/img/appbuddy-cover.png" alt="Cover image of green hexagons.">
   <meta property="og:url" content="https://application-bud.web.app/">
 
   <!-- For Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Application Buddy">
-  <meta name="twitter:description" content="Application Buddy: Making your job search easier by simplifying the application process. Create your personalized application buddy today!">
+  <meta name="twitter:title" content="Application Bud">
+  <meta name="twitter:description" content="Application Bud: Making your job search easier by simplifying the application process. Create your personalized application bud today!">
   <meta name="twitter:image" content="https://application-bud.web.app/img/appbuddy-cover.png" alt="Cover image of green hexagons.">
 
-  <title>Application Buddy</title>
+  <title>Application Bud</title>
   <!-- Favicon-->
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -44,19 +44,20 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#page-top">Application Bud</a>
+      <a class="navbar-brand" href="#page-top"><img src="img/resume.png" id="logo" style="width:30px; height:30px;">Application Bud</a>
       <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
         data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
-        Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-              href="#portfolio">Portfolio</a></li>
+              href="#portfolio">Profile</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#chatBot">Chat Bot</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#container-contact">Contact</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#socials">Socials</a>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="socials-btn" href="#socials">Socials</a>
           </li>
         </ul>
       </div>
@@ -68,23 +69,82 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Heading-->
-      <h1 class="masthead-heading text-uppercase mb-0">Application Buddy</h1>
+      <h1 class="masthead-heading text-uppercase mb-0">Application Bud</h1>
+
+      <p class="masthead-subheading font-weight-light mb-0">Just type up your info & press enter to commit. Press on
+        info to copy, then paste. <br> Set it and forget it. You're good to go! </p>
       <!-- Icon Divider-->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div>
       </div>
-      <!-- Masthead Subheading-->
-      <p class="masthead-subheading font-weight-light mb-0">Just type up your info & press enter to commit. Press on
-        info to copy, then paste. <br> Set it and forget it. You're good to go!</p>
+      <div id="helpful-tips">
+        <h2>Helpful to know</h2>
+        <hr> <!-- Horizontal line separator -->
+
+        <div class="columns-container">
+          <!-- Column 1: Keyboard Shortcuts -->
+          <div class="column" id="keyboard-tips">
+              <h4>Keyboard Shortcuts</h4>
+              <div class="shortcuts-container">
+                  <div class="shortcut">
+                      <h5>Copy</h5>
+                      <ul class="tips">
+                          <li>Windows: <code>ctrl + c</code></li>
+                          <li>Mac: <code>command + c</code></li>
+                      </ul>
+                  </div>
+                  <div class="shortcut">
+                      <h5>Paste</h5>
+                      <ul class="tips">
+                        <li>Windows: <code>ctrl + v</code></li>
+                        <li>Mac: <code>command + v</code></li>
+                      </ul>
+                  </div>
+                  <div class="shortcut">
+                      <h5>Undo</h5>
+                      <ul class="tips">
+                          <li>Windows: <code>ctrl + z</code></li>
+                          <li>Mac: <code>command + z</code></li>
+                      </ul>
+                  </div>
+                  <div class="shortcut">
+                      <h5>Redo</h5>
+                      <ul class="tips">
+                          <li>Windows: <code>ctrl + y</code></li>
+                          <li>Mac: <code>command + shift + z</code></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Column 2: Application Tips -->
+          <div class="column" id="app-tips">
+              <h4>Application Tips</h4>
+              <ul class="tips">
+                  <li>Keep your responses concise. Recruiters often scan through applications quickly.</li>
+                  <li>Use consistent formatting. Ensure that dates, job titles, and other details are formatted consistently throughout your application.</li>
+                  <li>Tailor your application. Ensure that your responses align with the specific role or company you're applying for.</li>
+                  <li>Save regularly. Don't risk losing your data by relying solely on the tool. Regularly save or backup your responses elsewhere.</li>
+                  <li>Review before submission. Always double-check your application for errors or omissions.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<h5><strong>Note:</strong> If you have questions, there's a chatbot below. Feel free to ask. Good luck! :&#41</h5>
+
     </div>
   </header>
 
 
   <!-- Portfolio Section-->
-  <section class="page-section portfolio" id="">
+  <section class="page-section portfolio" id="portfolio">
     <div class="container">
+
       <!-- Portfolio Section Heading-->
       <div id="top-section">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">App Info</h2>
@@ -100,147 +160,436 @@
       <div class="row justify-content-center">
         <!-- Portfolio Item 1-->
         <div id="personalInfoContainer">
-        <div class="col-12 mx-auto">
-          <h2 class="page-section-heading text-uppercase text-secondary">Personal Info</h2>
-          <div id="notification" class="hidden">
-            Text successfully copied!
-          </div>
-          <div class="form-group">
-            <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" id="firstName" placeholder="John">
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Doe">
-          </div>
-          <div class="form-group">
-            <label for="fullName">Full Name:</label>
-            <input type="text" class="form-control" id="fullName" placeholder="John Doe">
-          </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="jdoe@gmail.com">
-          </div>
-          <div class="form-group">
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="tel" class="form-control" id="phoneNumber" placeholder="555 232 1161">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Personal Info</h2>
+            <div id="notification" class="hidden">
+              Text successfully copied!
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" class="form-control committable" id="firstName" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="middleName">Middle or Preferred Name:</label>
+              <input type="text" class="form-control committable" id="middleName" placeholder="D.">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" class="form-control committable" id="lastName" placeholder="Doe">
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name:</label>
+              <input type="text" class="form-control committable" id="fullName" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control committable" id="email" placeholder="jdoe@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number:</label>
+              <input type="tel" class="form-control committable" id="phoneNumber" placeholder="555 232 1161">
+            </div>
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input type="text" class="form-control committable" id="address" placeholder="123 Circle Avenue">
+            </div>
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" class="form-control committable" id="city" placeholder="Los Angeles">
+            </div>
+            <div class="form-group">
+              <label for="state">State:</label>
+              <input type="text" class="form-control committable" id="state" placeholder="California">
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip code:</label>
+              <input type="number" class="form-control committable" id="zip" placeholder="90001">
+            </div>
+
+            <!-- <div class="sectionsContainer"></div>
+            <div class="divider-custom">
+              <button class="addSectionBtn btn btn-primary"><i class="fas fa-circle-plus"></i></button>
+            </div> -->
           </div>
         </div>
 
-          <!-- <div class="sectionsContainer"></div>
-
-          <div class="divider-custom">
-            <div class="divider-custom-icon">
-              <button class="addSectionBtn btn btn-primary"><i class="fas fa-circle-plus"></i>
-              </button>
+        <div id="educationalContainer">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Education</h2>
+            <div class="form-group">
+              <label for="school">School or University:</label>
+              <input type="text" class="form-control committable" id="school" placeholder="University of XYZ">
             </div>
-          </div> -->
-
+            <div class="form-group">
+              <label for="degree">Degree:</label>
+              <input type="text" class="form-control committable" id="degree" placeholder="Bachelor of Science">
+            </div>
+            <div class="form-group">
+              <label for="field">Field of Study:</label>
+              <input type="text" class="form-control committable" id="field" placeholder="Computer Science">
+            </div>
+            <div class="form-group">
+              <label for="gpa">GPA:</label>
+              <input type="text" class="form-control committable" id="gpa" placeholder="Computer Science">
+            </div>
+            <div class="form-group">
+              <label for="dateFrom">From:</label>
+              <input type="text" class="form-control committable" id="dateFrom" placeholder="08/2020">
+            </div>
+            <div class="form-group">
+              <label for="dateTo">To:</label>
+              <input type="text" class="form-control committable" id="dateTo" placeholder="12/2020">
+            </div>
+          </div>
         </div>
 
         <div id="linksContainer">
-        <div class="col-12 mx-auto">
-          <h2 class="page-section-heading text-uppercase text-secondary">Links</h2>
-          <div class="form-group">
-            <label for="portfolio">Portfolio:</label>
-            <input id="portfolio" type="text" class="form-control" placeholder="https://yourName.com">
-          </div>
-          <div class="form-group">
-            <label for="linkedin">LinkedIn:</label>
-            <input id="linkedin" type="text" class="form-control" placeholder="https://yourLI.com">
-          </div>
-        </div>
-          <!-- <div class="sectionsContainer"></div>
-
-          <div class="divider-custom">
-            <div class="divider-custom-icon">
-              <button class="addSectionBtn btn btn-primary"><i class="fas fa-circle-plus"></i>
-              </button>
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Links</h2>
+            <div class="form-group">
+              <label for="portfolioLink">Portfolio:</label>
+              <input id="portfolioLink" type="text" class="form-control committable" placeholder="https://yourName.com">
             </div>
-          </div> -->
+            <div class="form-group">
+              <label for="linkedin">LinkedIn:</label>
+              <input id="linkedin" type="text" class="form-control committable" placeholder="https://yourLI.com">
+            </div>
+            <div class="form-group">
+              <label for="otherLink">Other:</label>
+              <input id="otherLink" type="text" class="form-control committable" placeholder="https://yourOther.com">
+            </div>
+          </div>
         </div>
-
 
         <div id="jobInfoContainer">
-            <div class="col-12 mx-auto">
-              <h2 class="page-section-heading text-uppercase text-secondary">Job Info</h2>
-              <div class="form-group">
-                <label for="companyName">Company Name:</label>
-                <input type="text" class="form-control" id="companyName" placeholder="Replit">
-              </div>
-              <div class="form-group">
-                <label for="jobTitle">Job Title:</label>
-                <input type="text" class="form-control" id="jobTitle" placeholder="Software Engineer">
-              </div>
-              <div class="form-group">
-                <label for="jobDescription">Job Description:</label>
-                <textarea type="text" class="form-control" id="jobDescription"
-                  placeholder="Job description goes here."></textarea>
-              </div>
-
-            <!-- <div class="sectionsContainer"></div>
-            <div class="button-container">
-              <button id="addJobInfoBtn" class="btn btn-primary">Add A Job</button>
-              <div class="divider-custom">
-                <div class="divider-custom-icon">
-                  <button class="addSectionBtn btn btn-primary"><i class="fas fa-circle-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </div> -->
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Technical Experience</h2>
+            <div class="form-group">
+              <h3>Entry 1</h3>
+              <label for="jobTitle">Title:</label>
+              <input type="text" class="form-control committable" id="jobTitle" placeholder="Software Engineer">
             </div>
+            <div class="form-group">
+              <label for="companyName">Company Name:</label>
+              <input type="text" class="form-control committable" id="companyName" placeholder="Popper">
+            </div>
+            <div class="form-group">
+              <label for="companyLocation">Location:</label>
+              <input type="text" class="form-control committable" id="companyLocation" placeholder="Los Angeles">
+            </div>
+            <div class="form-group">
+              <label for="jobDescription">Role Description:</label>
+              <textarea type="text" class="form-control committable" id="jobDescription"
+                placeholder="Job description goes here."></textarea>
+            </div>
+
+            <div class="form-group">
+              <h3>Entry 2</h3>
+              <label for="jobTitle2">Title:</label>
+              <input type="text" class="form-control committable" id="jobTitle2" placeholder="Software Engineer">
+            </div>
+            <div class="form-group">
+              <label for="companyName2">Company Name:</label>
+              <input type="text" class="form-control committable" id="companyName2" placeholder="Github">
+            </div>
+            <div class="form-group">
+              <label for="companyLocation2">Location:</label>
+              <input type="text" class="form-control committable" id="companyLocation2" placeholder="Los Angeles">
+            </div>
+            <div class="form-group">
+              <label for="jobDescription2">Role Description:</label>
+              <textarea type="text" class="form-control committable" id="jobDescription2"
+                placeholder="Job description goes here."></textarea>
+            </div>
+
+            <div class="form-group">
+              <h3>Entry 3</h3>
+              <label for="jobTitle3">Title:</label>
+              <input type="text" class="form-control committable" id="jobTitle3" placeholder="Software Engineer">
+            </div>
+            <div class="form-group">
+              <label for="companyName3">Company Name:</label>
+              <input type="text" class="form-control committable" id="companyName3" placeholder="openAI">
+            </div>
+            <div class="form-group">
+              <label for="companyLocation3">Location:</label>
+              <input type="text" class="form-control committable" id="companyLocation3" placeholder="Los Angeles">
+            </div>
+            <div class="form-group">
+              <label for="jobDescription3">Role Description:</label>
+              <textarea type="text" class="form-control committable" id="jobDescription3"
+                placeholder="Job description goes here."></textarea>
+            </div>
+          </div>
         </div>
 
+        <div id="certsContainer">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Certifications</h2>
+            <h3>Certification 1</h3>
+            <div class="form-group">
+              <label for="certLink">Certification Name:</label>
+              <input id="certLink" type="text" class="form-control committable" placeholder="Responsive Web Design">
+            </div>
+            <div class="form-group">
+              <label for="org">Issuing Organization:</label>
+              <input id="org" type="text" class="form-control committable" placeholder="freeCodeCamp.org">
+            </div>
+            <div class="form-group">
+              <label for="dateObtained">Date Obtained:</label>
+              <input id="dateObtained" type="text" class="form-control committable" placeholder="02/07/2023">
+            </div>
+            <div class="form-group">
+              <label for="expiringDate">Expiration Date:</label>
+              <input id="expiringDate" type="text" class="form-control committable" placeholder="02/07/2033">
+            </div>
+
+            <h3>Certification 2</h3>
+            <div class="form-group">
+              <label for="certLink2">Certification Name:</label>
+              <input id="certLink2" type="text" class="form-control committable" placeholder="Responsive Web Design">
+            </div>
+            <div class="form-group">
+              <label for="org2">Issuing Organization:</label>
+              <input id="org2" type="text" class="form-control committable" placeholder="freeCodeCamp.org">
+            </div>
+            <div class="form-group">
+              <label for="dateObtained2">Date Obtained:</label>
+              <input id="dateObtained2" type="text" class="form-control committable" placeholder="02/07/2023">
+            </div>
+            <div class="form-group">
+              <label for="expiringDate2">Expiration Date:</label>
+              <input id="expiringDate2" type="text" class="form-control committable" placeholder="02/07/2033">
+            </div>
+          </div>
+        </div>
+
+        <div id="awardsContainer">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">Awards & Honors</h2>
+            <h3>Award 1</h3>
+            <div class="form-group">
+              <label for="award">Award Name:</label>
+              <input id="award" type="text" class="form-control committable" placeholder="Most Creative IOS App">
+            </div>
+            <div class="form-group">
+              <label for="awardOrg">Awarding Organization:</label>
+              <input id="awardOrg" type="text" class="form-control committable" placeholder="codePath.org">
+            </div>
+            <div class="form-group">
+              <label for="awardDate">Date Obtained:</label>
+              <input id="awardDate" type="text" class="form-control committable" placeholder="06/01/2020">
+            </div>
+            <div class="form-group">
+              <label for="awardLink">Award Link:</label>
+              <input id="awardLink" type="text" class="form-control committable" placeholder="https://awardLink.com">
+            </div>
+
+            <h3>Award 2</h3>
+            <div class="form-group">
+              <label for="award2">Award Name:</label>
+              <input id="award2" type="text" class="form-control committable" placeholder="Dean's List">
+            </div>
+            <div class="form-group">
+              <label for="awardOrg2">Awarding Organization:</label>
+              <input id="awardOrg2" type="text" class="form-control committable" placeholder="California State University">
+            </div>
+            <div class="form-group">
+              <label for="awardDate2">Date Obtained:</label>
+              <input id="awardDate2" type="text" class="form-control committable" placeholder="12/01/2020">
+            </div>
+            <div class="form-group">
+              <label for="awardLink2">Award Link:</label>
+              <input id="awardLink2" type="text" class="form-control committable" placeholder="https://awardLink.com">
+            </div>
+          </div>
+        </div>
 
         <div id="jobRefContainer">
-            <div class="col-12 mx-auto">
-              <h2 class="page-section-heading text-uppercase text-secondary">References</h2>
-              <div class="form-group">
-                <label for="referenceName">Name:</label>
-                <input type="text" class="form-control" id="referenceName" placeholder="James">
-              </div>
-              <div class="form-group">
-                <label for="relationship">Relationship:</label>
-                <input type="text" class="form-control" id="relationship" placeholder="Manager">
-              </div>
-              <div class="form-group">
-                <label for="referenceNumber">Phone Number:</label>
-                <input type="text" class="form-control" id="referenceNumber" placeholder="225 262 4378">
-              </div>
-              <div class="form-group">
-                <label for="referenceEmail">Email:</label>
-                <input type="text" class="form-control" id="referenceEmail" placeholder="james@gmail.com">
-              </div>
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">References</h2>
+            <div class="form-group">
+              <h3>Reference 1</h3>
+              <label for="referenceName">Name:</label>
+              <input type="text" class="form-control committable" id="referenceName" placeholder="James">
+            </div>
+            <div class="form-group">
+              <label for="relationship">Relationship:</label>
+              <input type="text" class="form-control committable" id="relationship" placeholder="Manager">
+            </div>
+            <div class="form-group">
+              <label for="referenceNumber">Phone Number:</label>
+              <input type="text" class="form-control committable" id="referenceNumber" placeholder="225 262 4378">
+            </div>
+            <div class="form-group">
+              <label for="referenceEmail">Email:</label>
+              <input type="text" class="form-control committable" id="referenceEmail" placeholder="james@gmail.com">
+            </div>
 
-              <!-- <div class="sectionsContainer"></div>
+            <div class="form-group">
+              <h3>Reference 2</h3>
+              <label for="referenceName2">Name:</label>
+              <input type="text" class="form-control committable" id="referenceName2" placeholder="James">
+            </div>
+            <div class="form-group">
+              <label for="relationship2">Relationship:</label>
+              <input type="text" class="form-control committable" id="relationship2" placeholder="Manager">
+            </div>
+            <div class="form-group">
+              <label for="referenceNumber2">Phone Number:</label>
+              <input type="text" class="form-control committable" id="referenceNumber2" placeholder="225 262 4378">
+            </div>
+            <div class="form-group">
+              <label for="referenceEmail2">Email:</label>
+              <input type="text" class="form-control committable" id="referenceEmail2" placeholder="james@gmail.com">
+            </div>
 
-              <div class="button-container">
-                <button id="addReferenceBtn" class="btn btn-primary">Add A Reference</button>
+            <div class="form-group">
+              <h3>Reference 3</h3>
+              <label for="referenceName3">Name:</label>
+              <input type="text" class="form-control committable" id="referenceName3" placeholder="James">
+            </div>
+            <div class="form-group">
+              <label for="relationship3">Relationship:</label>
+              <input type="text" class="form-control committable" id="relationship3" placeholder="Manager">
+            </div>
+            <div class="form-group">
+              <label for="referenceNumber3">Phone Number:</label>
+              <input type="text" class="form-control committable" id="referenceNumber3" placeholder="225 262 4378">
+            </div>
+            <div class="form-group">
+              <label for="referenceEmail3">Email:</label>
+              <input type="text" class="form-control committable" id="referenceEmail3" placeholder="james@gmail.com">
+            </div>
+          </div>
+        </div>
 
-                <div class="divider-custom">
-                  <div class="divider-custom-icon">
-                    <button class="addSectionBtn btn btn-primary"><i class="fas fa-circle-plus"></i>
-                    </button>
-                  </div>
+        <div id="moreContainer">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary">More</h2>
+            <h3>Skills</h3>
+            <p>&#40;separated by comma&#41;</p>
+
+            <div class="form-group">
+              <label for="techSkills">Technical Skills:</label>
+              <input id="techSkills" type="text" class="form-control committable" placeholder="HTML,CSS,JavaScript,...">
+            </div>
+            <div class="form-group">
+              <label for="softSkills">Soft Skills:</label>
+              <input id="softSkills" type="text" class="form-control committable" placeholder="Communication,Leadership,...">
+            </div>
+            <h3>Languages</h3>
+            <div class="form-group">
+              <label for="native">Native Language:</label>
+              <input id="native" type="text" class="form-control committable" placeholder="Language">
+              <label for="proficiency">Proficiency:</label>
+              <input id="proficiency" type="text" class="form-control committable" placeholder="Native">
+            </div>
+            <div class="form-group">
+              <label for="otherLanguage">Other Language:</label>
+              <input id="otherLanguage" type="text" class="form-control committable" placeholder="Language">
+              <label for="otherProficiency">Proficiency:</label>
+              <input id="otherProficiency" type="text" class="form-control committable" placeholder="Intermediate">
+            </div>
+            <h3>Other</h3>
+            <div class="form-group">
+              <label for="interests">Hobbies or Interests:</label>
+              <input id="interests" type="text" class="form-control committable" placeholder="Beat Saber, drawing, etc.">
+            </div>
+          </div>
+        </div>
+
+        <div id="answersContainer">
+          <div class="col-12 mx-auto">
+            <h2 class="page-section-heading text-uppercase text-secondary mb-0">Common Questions</h2>
+            <div class="form-group">
+              <div class="committedLabel" data-type="label" for="label1">
+                <div>
+                  <p class="label committable" id="label1">Have you used REST APIs? Which ones?</p>
                 </div>
-
+                <button class="btn btn-secondary editBtn init-Btn">Edit</button>
               </div>
-            </div> -->
+              <input type="text" class="form-control committable" id="question1" placeholder="Yes, The Movie Database API for ex...">
+            </div>
+            <div class="form-group">
+              <div class="committedLabel" data-type="label" for="label2">
+                <div>
+                  <p class="label committable" id="label2">Do you have experience with CI/CD? If so, which?</p>
+                </div>
+                <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+              </div>
+              <input type="text" class="form-control" id="question2" placeholder="Yes, I've used Azure...">
+            </div>
+          </div>
         </div>
-
-        <!-- Button to Add a Personalized Card -->
-        <!-- <button class="addPersonalizedCardBtn btn btn-primary">Add Personalized Card</button> -->
-
-        <!-- Container to Hold Personalized Cards -->
-        <!-- <div class="personalizedCardContainer"></div> -->
-
-        </div>
-
         <button class="btn btn-primary" id="clearButton">Clear Data</button>
-
-  
-  </div>
+      </div>
+    </div>
   </section>
+
+  <section class="page-section chatbot" id="chatBot">
+    <div class="container">
+      <div id="chatContainer">
+        <div class="mx-auto">
+          <h2 class="page-section-heading text-center text-uppercase text-white">Ask Chatbot</h2>
+          <!-- Icon Divider-->
+          <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+          </div>
+          <div class="form-group">
+            
+            <label id="chatLabel" for="chat">Enter whatever queries you might have!</label>
+            <div id="chatLogContainer" class="chat-log"></div>
+
+            <div id="inputArea">
+                <textarea type="text" class="form-control" id="userInput" placeholder="Type a message..."></textarea>
+                <button id="sendButton" class="btn btn-primary" onclick="startChat()">Send</button>
+                <button id="clearChatLogButton" class="btn btn-warning">Clear Chat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div id="container-contact">
+      <h2 class="page-section-heading text-center text-uppercase text-white">Contact</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <h3 class="text-center text-white" id="contact-suggestion">If you have suggestions or anything, feel free to reach out!</h3>
+
+      <div class="col-12 mx-auto">
+
+        <form id="contact-form" action="https://formsubmit.co/jobappbuddy@gmail.com" method="POST">
+          <div class="form-group">
+            
+            <label for="fname">Name*</label>
+            <input class="form-control" type="text" id="name" name="firstname" placeholder="Your name..">
+        
+            <label for="contactEmail">Email*</label>
+            <input class="form-control" type="text" id="email" name="email" placeholder="Your email address.." required>
+            
+            <label for="subject">Subject*</label>
+            <input class="form-control" type="text" id="subject" name="subject" placeholder="Say hello!">
+
+            <label for="contactMessage">Message*</label>
+            <textarea class="form-control" name="contactMessage" id="form-message" placeholder="Write something.." style="height:200px"></textarea>
+          
+            <input class="btn btn-primary" type="submit" id="submit-form" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
   <!-- About Section-->
   <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -256,7 +605,7 @@
       <div class="row">
         <div class="col-lg-4 ms-auto">
           <p class="lead">
-            <h3 class="lead">Application Buddy</h3>
+            <h3 class="lead">Application Bud</h3>
             is a complimentary web app built using Bootstrap, HTML, CSS, & JS, and deployed using Github and Firebase. Below I've included links to the Bootstrap template and Github repo.
             <br><br>
             <h3 class="lead">How It Works</h3>
@@ -264,7 +613,7 @@
           </div>
           <div class="col-lg-4 me-auto">
             <p class="lead">
-            <h3 class="lead">Why Application Buddy?</h3>
+            <h3 class="lead">Why Application Bud?</h3>
             As a job seeker myself, I understand how frustrating filling out job apps can be. So hopefully this app can help make things just a little bit easier :<span>&#41;</span>
               <br><br>
             <h3 class="lead">Let's Connect!</h3>
@@ -300,8 +649,9 @@
         <!-- Footer Location-->
 
         <!-- Footer Social Icons-->
-        <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center align-items-center"> 
           <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <div class="social-container">
           <a class="btn btn-outline-light btn-social mx-1" href="https://derekiniguez.com/" aria-label="Check out my portfolio here!" title="Check out my portfolio here!" target="_blank"><i
               class="fas fa-fw fa-laptop-code"></i></a>
           <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/derek-iniguez/" aria-label="Let's connect on LinkedIn here!" title="Let's connect on LinkedIn here!" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
@@ -314,12 +664,13 @@
             href="https://play.google.com/store/apps/details?id=com.DerekIniguez.Fragmented" aria-label="Download my mobile game on Android here!" title="Download my mobile game on Android here!" target="_blank"><i
               class="fab fa-fw fa-android"></i></a>
         </div>
+        </div>
         <!-- Footer About Text-->
-        <div class="col-lg-6">
-          <h4 class="text-uppercase mb-4">About Application Buddy</h4>
+        <div class="col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center align-items-center"> 
+          <h4 class="text-uppercase mb-4">About Application Bud</h4>
           <p class="lead mb-0">
-            App Buddy uses Freelance, which is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>
+            App Bud uses Freelance, which is a free to use, MIT licensed Bootstrap theme created by
+            <a href="http://startbootstrap.com" id="bootstrap">Start Bootstrap</a>
             .
           </p>
         </div>
@@ -339,6 +690,10 @@
   <script src="js/scripts.js"></script>
   <script src="js/copy-value.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/chat-web.js"></script>
+  <script src="js/add-section.js"></script>
+  <script src="js/footer.js"></script>
+
   <!-- <script src="js/personalized-cards.js"></script> -->
 
 

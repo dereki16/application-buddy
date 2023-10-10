@@ -1426,7 +1426,8 @@ progress {
 
   .col-lg-6 {
     flex: 0 0 auto;
-    width: 50%;
+    width: 49.5%;
+    margin: auto;
   }
 
   .col-lg-7 {
@@ -3959,7 +3960,6 @@ fieldset:disabled .btn {
   --bs-dropdown-color: #dee2e6;
   --bs-dropdown-bg: #343a40;
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
-  --bs-dropdown-box-shadow: ;
   --bs-dropdown-link-color: #dee2e6;
   --bs-dropdown-link-hover-color: #fff;
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
@@ -12928,7 +12928,7 @@ input {
 }
 
 #coffee {
-  color: #2d3f50;
+  color: #b03eb0;
   text-decoration: none;
 }
 
@@ -12984,7 +12984,7 @@ textarea:focus {
 .committed:hover {
   background-color:rgba(62, 188, 157, 0.25);
   border-radius: 8px;
-  padding: 1px;
+  padding-left: 5px;
   transition: .2s;
 }
 
@@ -13019,11 +13019,11 @@ textarea:focus {
   padding-bottom: 5px;
 }
 
-#clearButton {
+#clearButton, #clearChatLogButton  {
     border: 2px solid #ffee00d6;
   background-color: rgba(62, 188, 157, 0.2);
 }
-#clearButton:hover {
+#clearButton:hover, #clearChatLogButton:hover {
   background-color: #2e4050;
   border: 2px solid red;
   color: red;
@@ -13036,14 +13036,14 @@ textarea:focus {
 }
 
 @media (max-width: 1000px) {
-  .col-12, .page-section, .portfolio, section, .container, #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container{
+  .col-12, .page-section, .portfolio, section, .container, #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container, #chatLogContainer{
     width: 100%!important;
     
   }
   #jobInfoContainer, #jobRefContainer,section, .page-section, .portfolio, .row, .justify-content-center, .container {
     margin: 0px;
   }
-  #jobInfoContainer, #jobRefContainer, #linksContainer, #personalInfoContainer {
+  #jobInfoContainer, #jobRefContainer, #linksContainer, #personalInfoContainer, #chatContainer, #educationalContainer, #certsContainer, #awardsContainer, #moreContainer, #answersContainer {
     padding: 0px;
   }
   #jobRefContainer {
@@ -13071,4 +13071,378 @@ textarea:focus {
 
 .copyright .container  {
   color: #6f93b5;
+}
+
+#chatLogContainer {
+  background-color: #55758f; 
+  padding: 3px;
+}
+.bot-message, .loadingIndicator {
+  background-color: #2e4050;
+  color: white;
+}
+
+.chat-log {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  
+}
+.message {
+  white-space: pre-line;
+}
+.message {
+  margin-bottom: 10px;
+  
+}
+
+.user-message, .bot-message, .loadingIndicator {
+  display: block;
+  margin-bottom: 0px;
+  padding: 5px 10px;
+}
+
+.bot-message {
+  border-left: solid #537490 1px;
+}
+
+.user-message {
+  background-color: #537490;
+  color: white;
+}
+
+#userInput {
+  background-color: #2f363f;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #5a5a6d; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8083ab; 
+    border-radius: 4px; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6d719e; 
+}
+
+#chatLogContainer::-webkit-scrollbar-thumb {
+  background: #86889f; 
+}
+#chatLogContainer::-webkit-scrollbar-thumb:hover {
+  background: #8083ab; 
+}
+
+/* ... (rest of your CSS code) ... */
+
+.loading-indicator {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  margin: 0px 5px;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.25s; }
+.dot:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+#clearChatLogButton {
+  float: right;
+  color: white;
+}
+
+
+#chatBot label {
+  color: white;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.chat-log {
+    border-top: 10px solid #3ebc9d;
+    border-bottom: 10px solid #3ebc9d;
+}
+
+.editableLabel:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.committedLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.committed {
+    font-size: 16px;
+    font-weight: normal;
+    /* ... any other resets as needed ... */
+}
+#answersContainer .committed {
+  width: 100%;
+  padding: 0px 0px 0px 5px;
+    display: flex;
+  align-items: center; /* This vertically centers the content inside the flex container */
+
+}
+#answersContainer .committed, .committed {
+  width: 100%;
+  height: 40px;          /* assuming a height for this example */
+  display: table;
+  padding-left: 5px;
+}
+
+.committed p {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#answersContainer .editBtn, .editBtn {
+  float: right;
+}
+
+#answersContainer .committedLabel {
+  width: 100%;
+}
+
+.committedLabel div p {
+  padding: 10px 0px;
+  margin: 0;
+}
+
+.committedLabel div{
+  width: 100%;
+}
+.committed {
+  width: 100%;
+}
+#chatLabel {
+  padding-left: 6.5%;
+}
+@media (min-width: 1000px) {
+  #chatContainer {
+  width: 55%;
+  margin: auto;
+}
+  #container-contact .btn {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+#chatLabel {
+  width: 100%;
+  padding: 0%;
+}
+ }
+@media (max-width: 500px) {
+#chatLabel {
+  width: 100%;
+}
+ }
+
+#chatBot {
+  background-color: #2f363f;
+}
+
+#container-contact {
+  background-color: #2e4050;
+  color: #2e4050;
+  font-weight: bolder;
+}
+#container-contact .col-12 {
+  background-color: #3ebc9d;
+}
+#container-contact input, #container-contact textarea {
+  background-color: #2f363f;
+  color: #00feb6;
+  padding: 8px;
+  border: 2px solid #00feb6;
+}
+#container-contact input:focus, #container-contact textarea:focus {
+    box-shadow: 0 0 0 0.1rem rgb(0 254 182);
+}
+
+#container-contact .btn {
+    background-color: #00feb6;
+  color: black;
+  font-weight: bolder;
+  border: 3px solid #2f363f;;
+}
+#container-contact .btn:hover {
+  background-color: #1ea07b;
+  box-shadow: 0 0 0 0.15rem rgb(0 254 182);
+}
+#container-contact .col-12 {
+  padding: 2% 3%;
+  border-radius: 3%;
+}
+
+#container-contact input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #2f4150 inset!important;
+    -webkit-text-fill-color: #00feb6;
+}
+
+.columns-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.column {
+  flex: 1; 
+  min-width: 300px;
+}
+
+.shortcuts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+  gap: 10px;
+}
+
+.shortcut ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#app-tips ul {
+  list-style-type: decimal;
+  text-align: left;
+}
+
+#keyboard-tips {
+  max-width: 100%;
+  margin: auto;
+}
+#app-tips {
+  max-width: 50%;
+  margin: auto
+}
+
+@media (max-width: 500px) {
+  .column, .shortcuts-container {
+    flex-basis: 100%; 
+    max-width: 100%;
+  }
+
+  .shortcuts-container {
+    grid-template-columns: 1fr; /* Set it to 1 column for smaller screens */
+  }
+}
+
+#clearButton {
+  display: block; 
+  margin: auto;
+}
+
+#helpful-tips {
+  background-color:#2e4050 ;
+padding: 10px 0px;
+border: 10px solid #2f363f;
+border-radius: 20px;
+}
+
+header h5 {
+  font-weight: 100
+}
+header h5 strong {
+  font-weight:  900;
+}
+
+.committed-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#bootstrap {
+  color: #aa42ae;
+}
+#logo {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.nav-link.active {
+    color: black; 
+}
+
+.nav-link {
+  text-align: center;
+}
+
+@media (max-width: 350px) {
+  .navbar-toggler {
+    width: 15%;
+    font-size: 1.7vh!important;
+    padding: 10px!important;
+  }
+  .btn-social {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
+  #helpful-tips {
+    width: 100%;
+    padding-right: 5px;
+  }
+  header .container {
+    padding: 3px;
+  }
+  header .columns-container {
+    padding-right: 100px;
+    width: 90%!important;
+  }
+  ul {
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 310px) {
+.column {
+  min-width: 270px;
+}
+}
+
+@media (max-width: 285px) {
+.column {
+  min-width: 240px;
+}
+}
+@media (max-width: 250px) {
+.column {
+  min-width: 200px;
+}
+}
+
+@media (max-width: 220px) {
+.column {
+  min-width: 190px;
+}
 }

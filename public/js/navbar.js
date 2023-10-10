@@ -30,6 +30,7 @@ window.addEventListener('DOMContentLoaded', event => {
     });
   };
 
+  // Stylize active nav link
   const navbarToggler = document.body.querySelector('.navbar-toggler');
   const responsiveNavItems = [].slice.call(
     document.querySelectorAll('#navbarResponsive .nav-link')
@@ -41,5 +42,45 @@ window.addEventListener('DOMContentLoaded', event => {
       }
     });
   });
-
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = [
+      document.getElementById('portfolio'),
+      document.getElementById('chatBot'),
+      document.getElementById('container-contact'),
+      document.getElementById('about'),
+      document.getElementById('socials')  
+  ];
+
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function deactivateAllLinks() {
+      navLinks.forEach(link => link.classList.remove('active'));
+  }
+
+  window.addEventListener('scroll', function() {
+      let currentSection = null;
+
+      sections.forEach(section => {
+          let threshold = 100;  
+          if (section.id === 'socials') {
+              threshold = 550; 
+          }
+
+          const sectionTop = section.offsetTop;
+          if (window.scrollY >= sectionTop - threshold) {
+              currentSection = section;
+          }
+      });
+
+      deactivateAllLinks();
+      if (currentSection) {
+          const currentLink = document.querySelector(`.nav-link[href="#${currentSection.id}"]`);
+          if (currentLink) {
+              currentLink.classList.add('active');
+          }
+      }
+  });
+});
+
