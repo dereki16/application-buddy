@@ -46,12 +46,13 @@ window.addEventListener('DOMContentLoaded', event => {
 
 document.addEventListener('DOMContentLoaded', function () {
   const sections = [
-      document.getElementById('portfolio'),
-      document.getElementById('chatBot'),
-      document.getElementById('container-contact'),
-      document.getElementById('about'),
-      document.getElementById('socials')  
-  ];
+    document.getElementById('portfolio'),
+    document.getElementById('chatBot'),
+    document.getElementById('container-contact'),
+    document.getElementById('about'),
+    document.getElementById('socials')
+].filter(section => section !== null);
+
 
   const navLinks = document.querySelectorAll('.nav-link');
 
@@ -63,9 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
       let currentSection = null;
 
       sections.forEach(section => {
+        if (!section) return;
           let threshold = 100;  
-          if (section.id === 'socials') {
-              threshold = 550; 
+          if (section && section.id && section.id === 'socials') {
+            threshold = 550; 
           }
 
           const sectionTop = section.offsetTop;
@@ -84,3 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+$(document).ready(function() {
+  if (window.location.hash) {
+      const hash = window.location.hash;
+      $('html, body').animate({
+          scrollTop: $(hash).offset().top - 100
+      }, 800);  
+  }
+});

@@ -37,7 +37,15 @@ app.post("/get-openai-response", async (req, res) => {
   try {
     const apiResponse = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [{role: "user", content: userMessage}],
+      messages: [
+        {role: "system", content: "You are an assistant that " +
+        "provides concise advice primarily " +
+        "on job related info. " +
+        "Please provide responses in less than 120 words. " +
+        "In lists of more than 5 items, each item should be concise. "},
+        {role: "user", content: userMessage},
+      ],
+      max_tokens: 200,
     });
     res.json({openaiResponse: apiResponse.data.choices[0].message.content});
   } catch (error) {

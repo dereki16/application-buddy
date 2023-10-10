@@ -13446,3 +13446,68 @@ header h5 strong {
   min-width: 190px;
 }
 }
+
+.links {
+  color: #b03eb0;
+  text-decoration: none;
+}
+.links:hover {
+  color: #673eb0;
+}
+#chatBot {
+    border-top: 10px solid #3ebc9d;
+  border-bottom: 10px solid #3ebc9d;
+}
+#about .container, #ty-about {
+  background-color: #2d3f50;
+  padding: 20px;
+  border-top: 10px solid #3ebc9d;
+  border-bottom: 10px solid #3ebc9d;
+}
+
+#about {
+  padding: 20px;
+    width: 60%;
+  margin: auto;
+}
+#about {
+  border-radius: 10px;
+}
+#ty-about-section {
+  background-color: #3ebc9d;
+}
+#ty-about .btn-outline-light {
+  border: 2px solid #3ebc9d;
+  color: #3ebc9d
+}
+#ty-about .btn-outline-light:hover {
+  background-color: #1b252f;
+}
+.footer-nav {
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.footer-nav .nav-item {
+    margin-bottom: 0;
+}
+
+.footer-nav .nav-link {
+    margin: 0 5px;
+}
+
+.footer .nav-link:hover {
+  color: #3ebc9d;
+}
+#privacy  {
+  background-color: #2d3f50!important;
+    border-bottom: 10px solid #3ebc9d;
+
+}
+
+.legal {
+   white-space: break-spaces;
+   text-align: left;
+ width: 70%;
+ margin: auto;
+}
