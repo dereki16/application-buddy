@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('chatBot'),
     document.getElementById('container-contact'),
     document.getElementById('about'),
+    document.getElementById('privacy'),
     document.getElementById('socials')
 ].filter(section => section !== null);
 
