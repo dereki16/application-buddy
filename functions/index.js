@@ -20,7 +20,6 @@
 
 const functions = require("firebase-functions");
 const express = require("express");
-const cors = require("cors");
 const {Configuration, OpenAIApi} = require("openai");
 
 const app = express();
@@ -29,12 +28,8 @@ const openai = new OpenAIApi(new Configuration({
   apiKey: functions.config().openai.key,
 }));
 
-const isProduction = process.env.NODE_ENV === "production";
-
-app.use(cors({
-  origin: isProduction ? "https://application-bud.web.app/" : "*",
-}));
-
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
 
 app.post("/get-openai-response", async (req, res) => {

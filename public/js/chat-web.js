@@ -3,7 +3,7 @@ function getApiUrl() {
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {  
         return "http://localhost:3000/get-openai-response";
     } else {
-        return "https://us-central1-application-bud.cloudfunctions.net/chat";
+        return "https://us-central1-application-bud.cloudfunctions.net/chat/get-openai-response";
     }
 }
 

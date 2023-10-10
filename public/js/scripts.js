@@ -26,7 +26,6 @@ $(document).ready(function() {
 
 // Handle edit button on regular conditions
 $(document).on('click', '.editBtn', function() {
-  console.log("edit pressed");
   const committedDiv = $(this).parent('.committed');
   const text = committedDiv.find('p').text();
   const originalType = committedDiv.data('type'); 
@@ -38,7 +37,6 @@ $(document).on('click', '.editBtn', function() {
   if (originalType === 'textarea') {
     newElement = `<textarea class="form-control">${text}</textarea>`;
   } else if (originalType === 'label') {
-    console.log("Label detected");
     const text = committedDiv.find('p').text();
     const id = committedDiv.find('p').attr('id');
     const newElement = `<input type="text" class="form-control label committable" value="${text}"/>`;
@@ -46,7 +44,6 @@ $(document).on('click', '.editBtn', function() {
   }
    else {
     newElement = `<input id="${id}" type="text" class="form-control committable" value="${text}"/>`;
-    console.log("else activated");
   }
   localStorage.setItem(id, value);
   committedDiv.replaceWith(newElement);
@@ -63,7 +60,6 @@ $(document).on('click', '.editBtn', function() {
   const value = localStorage.getItem(id);
 
   newElement = `<input id="${id}" type="text" class="form-control committableLabel" value="${text}"/>`;
-  console.log("else activated");
   localStorage.setItem(id, value);
   committedDiv.replaceWith(newElement);
 });
@@ -85,7 +81,6 @@ $(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([t
   const type = this.tagName.toLowerCase() + ($(this).attr('type') ? ':' + $(this).attr('type') : '');
   localStorage.setItem(id, $(this).val());
   localStorage.setItem(`type${id}`, type);
-  console.log("input type " + type);
 });
 
   // Clear input values from localStorage when the form is submitted
