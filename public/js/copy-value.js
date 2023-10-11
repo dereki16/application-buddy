@@ -137,14 +137,33 @@ $(document).ready(function() {
           inputs.eq(currentIndex + 1).focus();
       }
   } else if ($(this).hasClass('committable')) {
-      const value = $(this).val();
-      const elementType = this.tagName.toLowerCase(); 
-      $(this).replaceWith(`<div class="committed" data-type="${elementType}"><p id="${id}">${value}</p> <button class="btn btn-secondary editBtn init-Btn">Edit</button></div>`);
-      
-      if (currentIndex + 1 < inputs.length && !$(this).closest('#answersContainer').length) {
+    const value = $(this).val();
+    const elementType = this.tagName.toLowerCase();
+    let committedHTML = '';
+
+    // Check if it's a textarea or a text input
+    if (elementType === 'textarea') {
+        committedHTML = `
+        <div class="committed" data-type="${elementType}">
+            <p id="${id}">${value.replace(/\n/g, '<br>')}</p> 
+            <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+        </div>`;
+    } else if (elementType === 'input' && $(this).attr('type') === 'text') {
+        committedHTML = `
+        <div class="committed" data-type="${elementType}">
+            <p id="${id}">${value}</p>
+            <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+        </div>`;
+    }
+
+    if (committedHTML) {
+        $(this).replaceWith(committedHTML);
+    }
+
+    if (currentIndex + 1 < inputs.length && !$(this).closest('#answersContainer').length) {
         inputs.eq(currentIndex + 1).focus();
     }
-  }
+}
 }
 localStorage.setItem('counter', counter);
 });
@@ -170,4 +189,25 @@ $(document).on('click', '.committed', function() {
   copyToClipboard(textToCopy, this); 
 });
 
+});
+
+
+$(document).on('click', '.editBtn', function() {
+  const committedDiv = $(this).parent('.committed');
+  const textElement = committedDiv.find('p');
+  const id = textElement.attr('id');
+  const originalType = committedDiv.data('type');
+  let value = textElement.html(); // using .html() instead of .text() to capture <br> tags
+
+  let newElement;
+
+  if (originalType === 'textarea') {
+      // Convert <br> tags back into newline characters for textarea
+      value = value.replace(/<br>/g, '\n');
+      newElement = `<textarea data-type="textarea" class="form-control committable" id="${id}">${value}</textarea>`;
+  } else if (originalType === 'input') {
+      newElement = `<input id="${id}" type="text" class="form-control committable" value="${value}"/>`;
+  }
+
+  committedDiv.replaceWith(newElement);
 });

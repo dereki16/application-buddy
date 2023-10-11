@@ -5,21 +5,26 @@ $(document).ready(function() {
     const savedValue = localStorage.getItem(id);
     const savedType = localStorage.getItem(`type${id}`); // Retrieve the saved type
 
-    if ($(this).closest('#chatBot').length === 0 && savedValue) { 
+    if ($(this).is('input') && $(this).closest('#chatBot').length === 0 && savedValue) { 
       $(this).replaceWith(`
         <div class="committed" data-type="${savedType}">
           <p id="${id}">${savedValue}</p> 
           <button class="btn btn-secondary editBtn post-refresh-btn">Edit</button>
         </div>
       `);
-    } else if ($(this).closest('#chatBot').length != 0) {
+  } else if ($(this).is('textarea') && $(this).closest('#chatBot').length === 0 && savedValue) {
       $(this).replaceWith(`
-
-      <div id="inputArea">
-      <textarea type="text" class="form-control" id="userInput" placeholder="Type a message..."></textarea>
-      
-  </div>
-  `);
+        <div class="committed" data-type="textarea">
+          <p id="${id}">${savedValue.replace(/\n/g, '<br>')}</p> 
+          <button class="btn btn-secondary editBtn post-refresh-btn">Edit</button>
+        </div>
+      `);
+  } else if ($(this).closest('#chatBot').length != 0) {
+      $(this).replaceWith(`
+        <div id="inputArea">
+          <textarea type="text" class="form-control" id="userInput" placeholder="Type a message..."></textarea>
+        </div>
+      `);
     }
   });
 });
@@ -32,22 +37,26 @@ $(document).on('click', '.editBtn', function() {
   let newElement;
   const textElement = committedDiv.find('p');
   const id = textElement.attr('id');
-  const value = localStorage.getItem(id);
+  let value = localStorage.getItem(id);
 
   if (originalType === 'textarea') {
-    newElement = `<textarea class="form-control">${text}</textarea>`;
-  } else if (originalType === 'label') {
-    const text = committedDiv.find('p').text();
-    const id = committedDiv.find('p').attr('id');
-    const newElement = `<input type="text" class="form-control label committable" value="${text}"/>`;
+    // Convert <br> tags back into newline characters for textarea
+    value = value.replace(/<br>/g, '\n');
+    newElement = `<textarea data-type="textarea" class="form-control committable" id="${id}">${value}</textarea>`;
+} else if (originalType === 'input') {
+    newElement = `<input id="${id}" type="text" class="form-control committable" value="${value}"/>`;
+}
+  else if (originalType === 'label') {
+    newElement = `<textarea data-type="label" class="form-control label committable">${text}</textarea>`;
     committedDiv.replaceWith(newElement);
+    console.log("label");
   }
-   else {
-    newElement = `<input id="${id}" type="text" class="form-control committable" value="${text}"/>`;
-  }
+  
   localStorage.setItem(id, value);
   committedDiv.replaceWith(newElement);
 });
+
+
 
 // Handle edit button for committed labels
 $(document).on('click', '.editBtn', function() {
@@ -76,29 +85,26 @@ window.onload = function() {
 };
 
 // Set certain inputs to storage
-$(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not(#chatBot input):not(#container-contact input):not(#container-contact textarea), textarea', function() {
+$(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="hidden"]):not(#chatBot input):not(#container-contact input):not(#container-contact textarea), textarea', function() {
+  
   const id = $(this).attr('id');
   const type = this.tagName.toLowerCase() + ($(this).attr('type') ? ':' + $(this).attr('type') : '');
+
   localStorage.setItem(id, $(this).val());
   localStorage.setItem(`type${id}`, type);
 });
 
+
   // Clear input values from localStorage when the form is submitted
-  $('#container-contact form').on('submit', function(event) {
-    setTimeout(() => {
-      $('input, textarea', this).each(function() {
-        const id = $(this).attr('id');
-        localStorage.removeItem(id);
-        localStorage.removeItem(`type${id}`);
-  
-        $(this).val("");
-      });
-    }, 2000);  // 2 seconds delay
-  
-    // Assuming that formsubmit.co takes care of the form submission and redirection, 
-    // you might not need to redirect manually. If you do, use the line below:
-    // setTimeout(() => window.location.href = "thank-you.html", 2100);
+$('#container-contact form').on('submit', function() {
+  $('input, textarea', this).each(function() {
+      const id = $(this).attr('id');
+      localStorage.removeItem(id);
+      localStorage.removeItem(`type${id}`);
+
+      $(this).val("");
   });
+});
 
 // Function to clear all data from localStorage except chat log
 function clearFormData() {
@@ -202,3 +208,39 @@ $(document).ready(function() {
       }
   });
 });
+
+// $(document).on('input', 'textarea[data-type="textarea"].form-control.committable', function() {
+//   console.log("Current value:", $(this).val());
+
+//   const id = $(this).attr('id'); // make sure to get the 'id' here, since it might not be in the scope outside
+//   const committedDiv = $(this).parent('.committed');
+//   let newElement;
+
+//   newElement = `<textarea data-type="label" class="form-control label committable">${text}</textarea>`;
+//   // Update the localStorage with the new value
+//   localStorage.setItem(id, $(this).val());
+//   committedDiv.replaceWith(newElement);
+
+//   console.log("localStorage value for", id, ":", localStorage.getItem(id));
+// });
+
+
+$(document).ready(function() {
+  const committedDivs = $('#container-contact .committed');
+  
+  committedDivs.each(function(index) {
+      const textValue = $(this).find('p').text();
+      const dataType = $(this).data('type');
+      const elementId = $(this).find('p').attr('id');
+
+      // Checking for divs with faulty data
+      if ((!textValue || textValue.trim() === "") || dataType === null || elementId === "undefined") {
+          if (index === 0) { // First faulty div
+              $(this).replaceWith(`<input type="hidden" class="hidden" name="_subject" value="New submission!">`);
+          } else if (index === 1) { // Second faulty div
+              $(this).replaceWith(`<input type="hidden" class="hidden" name="_next" value="https://application-bud.web.app/thank-you.html">`);
+          }
+      }
+  });
+});
+

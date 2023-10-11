@@ -12988,9 +12988,9 @@ textarea:focus {
   transition: .2s;
 }
 
-/*
- debugging
- .init-btn {
+
+ /* debugging */
+ /* .init-btn {
   color: yellow;
 }
 .post-refresh-btn {
@@ -13513,4 +13513,9 @@ header h5 strong {
    text-align: left;
  width: 70%;
  margin: auto;
+}
+
+.committed {
+  background-color: #e6f7fa;
+  border-radius: 5px;
 }
