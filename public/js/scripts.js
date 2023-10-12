@@ -16,7 +16,7 @@ $(document).ready(function() {
       $(this).replaceWith(`
         <div class="committed" data-type="textarea">
           <p id="${id}">${savedValue.replace(/\n/g, '<br>')}</p> 
-          <button class="btn btn-secondary editBtn post-refresh-btn">Edity</button>
+          <button class="btn btn-secondary editBtn post-refresh-btn">Edit</button>
         </div>
       `);
   } else if ($(this).closest('#chatBot').length != 0) {
