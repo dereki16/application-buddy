@@ -13315,7 +13315,6 @@ textarea:focus {
 .columns-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .column {
@@ -13326,7 +13325,6 @@ textarea:focus {
 .shortcuts-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
-  gap: 10px;
 }
 
 .shortcut ul {
@@ -13344,8 +13342,10 @@ textarea:focus {
   margin: auto;
 }
 #app-tips {
-  max-width: 50%;
-  margin: auto
+
+}
+.shortcut {
+  margin: auto;
 }
 
 @media (max-width: 500px) {
@@ -13404,10 +13404,7 @@ header h5 strong {
     font-size: 1.7vh!important;
     padding: 10px!important;
   }
-  .btn-social {
-    width: 3.5vh;
-    height: 3.5vh;
-  }
+ 
   #helpful-tips {
     width: 100%;
     padding-right: 5px;
@@ -13425,6 +13422,13 @@ header h5 strong {
   .column {
     padding-left: 5px;
 }
+  .btn-social {
+  border-radius: 30%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+}
+
 }
 
 @media (max-width: 310px) {
@@ -13519,3 +13523,8 @@ header h5 strong {
   background-color: #e6f7fa;
   border-radius: 5px;
 }
+
+#socials .container, #socials .col-lg-12, .navbar-nav {
+  padding: 0;
+}
+

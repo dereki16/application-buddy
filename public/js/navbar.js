@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sections = [
     document.getElementById('portfolio'),
     document.getElementById('chatBot'),
-    document.getElementById('container-contact'),
+    document.getElementById('contact'),
     document.getElementById('about'),
     document.getElementById('privacy'),
     document.getElementById('socials')
