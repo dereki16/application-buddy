@@ -84,14 +84,17 @@ $(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([t
 });
 
   // Clear input values from localStorage when the form is submitted
-$('#container-contact form').on('submit', function() {
-  $('input, textarea', this).each(function() {
-      const id = $(this).attr('id');
-      localStorage.removeItem(id);
-      localStorage.removeItem(`type${id}`);
-
-      $(this).val("");
-  });
+  $('#container-contact form').on('submit', function(event) {
+    setTimeout(() => {
+      $('input, textarea', this).each(function() {
+        const id = $(this).attr('id');
+        localStorage.removeItem(id);
+        localStorage.removeItem(`type${id}`);
+  
+        $(this).val("");
+      });
+    }, 2000);
+    //setTimeout(() => window.location.href = "thank-you.html", 2100);
 });
 
 // Function to clear all data from localStorage except chat log
