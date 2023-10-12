@@ -33,13 +33,15 @@ $(document).ready(function() {
         e.preventDefault();
 
         if ($(this).attr('id') === 'interests') {
-          const value = $(this).val();
-          $(this).replaceWith(`
-              <div class="committed" data-type="text">
-                  <p class="label" id="${id}" tabindex="0">${value}</p>
-                  <button class="btn btn-secondary editBtn init-Btn">Edit</button>
-              </div>
-          `);
+            const value = $(this).val();
+            localStorage.setItem(id, value); // Save the value immediately after capturing it
+            
+            $(this).replaceWith(`
+                <div class="committed" data-type="text">
+                    <p class="label" id="${id}" tabindex="0">${value}</p>
+                    <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+                </div>
+            `);
           $("#answersContainer .editBtn").first().click();
           $("#answersContainer .label").first().focus();
           const firstLabel = $("#answersContainer .label").first();
@@ -154,6 +156,12 @@ $(document).ready(function() {
             <p id="${id}">${value}</p>
             <button class="btn btn-secondary editBtn init-Btn">Edit</button>
         </div>`;
+    } else {
+        committedHTML = `
+        <div class="committed" data-type="${elementType}">
+            <p id="${id}">${value}</p>
+            <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+        </div>`;
     }
 
     if (committedHTML) {
@@ -175,6 +183,7 @@ $(document).on('click', '.committedLabel .editBtn', function() {
   const id = committedLabelDiv.find('p.label').attr('id');
   const newInputElement = `<input id="${id}" type="text" class="form-control label" value="${labelText}"/>`;
   committedLabelDiv.replaceWith(newInputElement);
+  console.log("damn here too");
 });
 
 // Add new section
@@ -191,23 +200,3 @@ $(document).on('click', '.committed', function() {
 
 });
 
-
-$(document).on('click', '.editBtn', function() {
-  const committedDiv = $(this).parent('.committed');
-  const textElement = committedDiv.find('p');
-  const id = textElement.attr('id');
-  const originalType = committedDiv.data('type');
-  let value = textElement.html(); // using .html() instead of .text() to capture <br> tags
-
-  let newElement;
-
-  if (originalType === 'textarea') {
-      // Convert <br> tags back into newline characters for textarea
-      value = value.replace(/<br>/g, '\n');
-      newElement = `<textarea data-type="textarea" class="form-control committable" id="${id}">${value}</textarea>`;
-  } else if (originalType === 'input') {
-      newElement = `<input id="${id}" type="text" class="form-control committable" value="${value}"/>`;
-  }
-
-  committedDiv.replaceWith(newElement);
-});
