@@ -47,37 +47,19 @@ $(document).on('click', '.editBtn', function() {
   if (originalType === 'textarea') {
       // Convert <br> tags back into newline characters for textarea
       value = value.replace(/<br>/g, '\n');
-      newElement = `<textarea data-type="textarea" class="form-control committable" id="${id}">${value}</textarea>`;
+      newElement = `<textarea data-type="textarea" class=" 444 form-control committable" id="${id}">${value}</textarea>`;
   } else if (originalType === 'input') {
-      newElement = `<input id="${id}" data-type="text" class="form-control committable" value="${value}"/>`;
+      newElement = `<input id="${id}" data-type="text" class="1 form-control committable" value="${value}"/>`;
   } else if (originalType === 'label') {
-      newElement = `<textarea data-type="label" class="form-control label committable">${value}</textarea>`;
+      newElement = `<textarea data-type="label" class="2 form-control label committable">${value}</textarea>`;
   } else {
-      newElement = `<input id="${id}" data-type="text" class="form-control committable" value="${value}"/>`;
+      newElement = `<input id="${id}" data-type="text" class="3 form-control committable" value="${value}"/>`;
   }
 
-  if (id !== '') {
+  if (id !== '' && id !== 'undefined') {
       localStorage.setItem(id, value);
   }
   committedDiv.replaceWith(newElement);
-});
-
-
-
-// Handle edit button for committed labels
-$(document).on('click', '.editBtn', function() {
-  const committedDiv = $(this).parent('.committed-section');
-  const text = committedDiv.find('p').text();
-  const originalType = committedDiv.data('type'); // get the original type from data attribute
-  let newElement;
-  const textElement = committedDiv.find('p');
-  const id = textElement.attr('id') || '';
-  const value = localStorage.getItem(id) || '';
-
-  newElement = `<input id="${id}" data-type="text" class="form-control committableLabel" value="${text}"/>`;
-  if (id !== '') {
-    localStorage.setItem(id, value);
-}  committedDiv.replaceWith(newElement);
 });
 
 window.onload = function() {
@@ -93,14 +75,13 @@ window.onload = function() {
 
 // Set certain inputs to storage
 $(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="hidden"]):not(#chatBot input):not(#container-contact input):not(#container-contact textarea), textarea', function() {
-  
   const id = $(this).attr('id');
   const type = this.tagName.toLowerCase() + ($(this).attr('type') ? ':' + $(this).attr('type') : '');
-
-  localStorage.setItem(id, $(this).val());
-  localStorage.setItem(`type${id}`, type);
+  if (id !== '' && id !== 'undefined') {
+    localStorage.setItem(id, $(this).val());
+    localStorage.setItem(`type${id}`, type);
+  }
 });
-
 
   // Clear input values from localStorage when the form is submitted
 $('#container-contact form').on('submit', function() {
@@ -125,8 +106,6 @@ function clearFormData() {
 }
 document.getElementById('clearButton').addEventListener('click', clearFormData);
 
-
-
 $(document).ready(function() {
 
   $(document).on('keydown', '#answersContainer input', function(e) {
@@ -145,14 +124,14 @@ $(document).ready(function() {
         const committedLabelElement = `
             <div class="committedLabel" data-type="label">
                 <div>
-                  <p class="${pClass}" tabindex="0">${value}</p>
+                  <p id="${id}" class="${pClass}" tabindex="0">${value}</p>
                 </div>
-                <button class="btn btn-secondary editBtn init-Btn">Edit</button>
+                <button class="btn btn-secondary editBtn init-Btn">Editzzz</button>
             </div>
         `;
 
         // Save to localStorage
-        if (id !== '') {
+        if (id !== '' && id !== 'undefined') {
           localStorage.setItem(id, value);
       }
         // Replace the input element with the new committed label
@@ -169,4 +148,13 @@ $(document).ready(function() {
         $(this).text(savedValue);
       }
   });
+
+    // Replace the committed label with the new input element
+$(document).on('click', '.committedLabel .editBtn', function() {
+  const committedLabelDiv = $(this).closest('.committedLabel');
+  const labelText = committedLabelDiv.find('p.label').text();
+  const id = committedLabelDiv.find('p.label').attr('id');
+  const newInputElement = `<input id="${id}" type="text" class=" 66 form-control label" value="${labelText}"/>`;
+  committedLabelDiv.replaceWith(newInputElement);
+});
 });

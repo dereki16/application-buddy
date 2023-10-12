@@ -35,7 +35,7 @@ $(document).ready(function() {
         if ($(this).attr('id') === 'interests') {
             const value = $(this).val();
             localStorage.setItem(id, value); // Save the value immediately after capturing it
-            
+
             $(this).replaceWith(`
                 <div class="committed" data-type="text">
                     <p class="label" id="${id}" tabindex="0">${value}</p>
@@ -49,7 +49,7 @@ $(document).ready(function() {
           firstLabel[0].selectionStart = firstLabel[0].value.length;
           firstLabel[0].selectionEnd = firstLabel[0].value.length;
 
-      }else if (counter == 0 && $(this).hasClass('label')) {
+      } else if (counter == 0 && $(this).hasClass('label')) {
         $("#question1").focus();
         counter++;
 
@@ -174,16 +174,6 @@ $(document).ready(function() {
 }
 }
 localStorage.setItem('counter', counter);
-});
-
-  // Replace the committed label with the new input element
-$(document).on('click', '.committedLabel .editBtn', function() {
-  const committedLabelDiv = $(this).closest('.committedLabel');
-  const labelText = committedLabelDiv.find('p.label').text();
-  const id = committedLabelDiv.find('p.label').attr('id');
-  const newInputElement = `<input id="${id}" type="text" class="form-control label" value="${labelText}"/>`;
-  committedLabelDiv.replaceWith(newInputElement);
-  console.log("damn here too");
 });
 
 // Add new section
