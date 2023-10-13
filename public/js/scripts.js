@@ -129,7 +129,7 @@ $(document).ready(function() {
                 <div>
                   <p id="${id}" class="${pClass}" tabindex="0">${value}</p>
                 </div>
-                <button class="btn btn-secondary editBtn init-Btn">Editzzz</button>
+                <button class="btn btn-secondary editBtn init-Btn">Edit</button>
             </div>
         `;
 
