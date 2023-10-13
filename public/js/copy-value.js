@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   // Pressing enter to commit data and tab into next input
   let counter = parseInt(localStorage.getItem('counter')) || 0; 
-  $(document).on('keydown', ':input', 'input:not(#contact-form input)', function (e) {
+  $(document).on('keydown', ':input', function (e) {
     const inputs = $(':input:visible:not(#chatBot :input, #answersContainer :input, #contact-form :input)');
     const currentIndex = inputs.index(this);
     const id = $(this).attr('id');

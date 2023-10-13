@@ -74,7 +74,7 @@ window.onload = function() {
 };
 
 // Set certain inputs to storage
-$(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="hidden"]):not(#chatBot input):not(#contact-form input):not(#contact-form textarea), textarea', function() {
+$(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="hidden"]):not(#chatBot input):not(#contact-form input):not(#userInput), textarea:not(#contact-form textarea):not(#chatBot textarea):not(#userInput)', function() {
   const id = $(this).attr('id');
   const type = this.tagName.toLowerCase() + ($(this).attr('type') ? ':' + $(this).attr('type') : '');
   if (id !== '' && id !== 'undefined') {
@@ -83,7 +83,7 @@ $(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([t
   }
 });
 
-  // Clear input values from localStorage when the form is submitted
+//   // Clear input values from localStorage when the form is submitted
 //   $('#container-contact form').on('submit', function(event) {
 //     setTimeout(() => {
 //       $('input, textarea', this).each(function() {
