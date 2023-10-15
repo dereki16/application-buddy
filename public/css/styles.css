@@ -13731,4 +13731,6 @@ header h5 strong {
     padding: 150px 0px;
   }
 }
-
+.committed{
+  outline: none;
+}
