@@ -38,7 +38,7 @@ window.addEventListener('scroll', function() {
     const currentScrollPosition = $(window).scrollTop();
    
     // Check if user is at the bottom of the page
-    if (currentScrollPosition + $(window).height() == $(document).height() && window.innerWidth > 400) {
+    if (currentScrollPosition + $(window).height() == $(document).height() && window.innerWidth > 1000) {
         if (!stylesApplied && !isTransitioning) {
             isTransitioning = true;
             applyStyles();

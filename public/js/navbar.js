@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const sections = [
     document.getElementById('portfolio'),
     document.getElementById('chatBot'),
+    document.getElementById('cover-letter'),
     document.getElementById('contact'),
     document.getElementById('about'),
-    document.getElementById('privacy'),
-    document.getElementById('socials')
+    document.getElementById('privacy')
 ].filter(section => section !== null);
 
 
@@ -67,10 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
       sections.forEach(section => {
         if (!section) return;
           let threshold = 100;  
-          if (section && section.id && section.id === 'socials') {
-            threshold = 550; 
-          }
-
           const sectionTop = section.offsetTop;
           if (window.scrollY >= sectionTop - threshold) {
               currentSection = section;

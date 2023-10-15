@@ -4,6 +4,9 @@ $(document).ready(function() {
     const id = $(this).attr('id');
     const savedValue = localStorage.getItem(id);
     const savedType = localStorage.getItem(`type${id}`); // Retrieve the saved type
+    const shouldNotCommit = $(this).hasClass('no-commit');
+
+    if (!shouldNotCommit) {
 
     if ($(this).is('input') && $(this).closest('#chatBot').length === 0 && savedValue) { 
       $(this).replaceWith(`
@@ -26,6 +29,7 @@ $(document).ready(function() {
         </div>
       `);
     }
+  }
   });
 });
 
@@ -82,20 +86,6 @@ $(document).on('input', 'input:not([type="checkbox"]):not([type="radio"]):not([t
     localStorage.setItem(`type${id}`, type);
   }
 });
-
-//   // Clear input values from localStorage when the form is submitted
-//   $('#container-contact form').on('submit', function(event) {
-//     setTimeout(() => {
-//       $('input, textarea', this).each(function() {
-//         const id = $(this).attr('id');
-//         localStorage.removeItem(id);
-//         localStorage.removeItem(`type${id}`);
-  
-//         $(this).val("");
-//       });
-//     }, 2000);
-//     //setTimeout(() => window.location.href = "thank-you.html", 2100);
-// });
 
 // Function to clear all data from localStorage except chat log
 function clearFormData() {

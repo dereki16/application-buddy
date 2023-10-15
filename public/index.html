@@ -55,15 +55,18 @@
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
               href="#portfolio">Profile</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#chatBot">Chat Bot</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cover-letter">Cover Letter</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="socials-btn" href="#socials">Socials</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <a href="#socials" class="social-icon">
+    <i class="fa-solid fa-code"></i>
+  </a>
 
   <!-- Masthead-->
   <header class="masthead bg-primary text-white text-center">
@@ -89,7 +92,7 @@
               <h4>Keyboard Shortcuts</h4>
               <div class="shortcuts-container">
                 <div class="shortcut">
-                  <h5>Commit Info</h5>
+                  <h5>Commit Info / Tab</h5>
                   <ul class="tips">
                       <li>All platforms: <code>Enter</code></li>
                   </ul>
@@ -97,8 +100,7 @@
               <div class="shortcut">
                   <h5>Add New Line in textarea</h5>
                   <ul class="tips">
-                    <li>Windows: <code>Shift + Enter</code></li>
-                    <li>Mac: <code>Shift + Enter</code></li>
+                    <li>All platforms: <code>Shift + Enter</code></li>
                   </ul>
               </div>
                   <div class="shortcut">
@@ -168,6 +170,7 @@
           <div class="divider-custom-line"></div>
         </div>
       </div>
+      <p class="text-center text-white">*Press enter to commit / skip input*</p>
 
       <!-- Portfolio Grid Items-->
       <div class="row justify-content-center">
@@ -183,7 +186,7 @@
               <input type="text" class="form-control committable" id="firstName" placeholder="John">
             </div>
             <div class="form-group">
-              <label for="middleName">Middle or Preferred Name:</label>
+              <label for="middleName">Middle Name:</label>
               <input type="text" class="form-control committable" id="middleName" placeholder="D.">
             </div>
             <div class="form-group">
@@ -193,6 +196,10 @@
             <div class="form-group">
               <label for="fullName">Full Name:</label>
               <input type="text" class="form-control committable" id="fullName" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="preferredName">Preferred First Name:</label>
+              <input type="text" class="form-control committable" id="preferredName" placeholder="James">
             </div>
             <div class="form-group">
               <label for="emailForm">Email:</label>
@@ -591,6 +598,72 @@
     </div>
   </section>
 
+  <section class="page-section" id="cover-letter">
+    <h2 class="page-section-heading text-center text-uppercase text-white">Cover Letter</h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+    <h3 class="text-center text-white" id="contact-suggestion">Need a quick cover letter PDF?</h3>
+      <div id="cl-card" class="col-12 mx-auto">
+        <div class="checks-container">
+          <p id="cl-checkbox">Include:</p>
+          <div class="checkbox-group-1">
+
+            <div class="checkbox-group">
+              <div class="checkbox-item checkbox-container">
+                <input type="checkbox" id="includePortfolio" class="real-checkbox no-commit save-checkbox">
+                <span class="custom-checkbox checkmark"></span>
+                <label for="includePortfolio">Portfolio</label>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item checkbox-container">
+                  <input type="checkbox" id="includeEmail" class="real-checkbox no-commit save-checkbox"> 
+                  <span class="custom-checkbox checkmark"></span>
+                  <label for="includeEmail">Email</label>
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item checkbox-container">
+                  <input type="checkbox" id="includePhone" class="real-checkbox no-commit save-checkbox">
+                  <span class="custom-checkbox checkmark"></span>
+                  <label for="includePhone">Phone</label>
+              </div>
+            </div>
+          </div>
+          <div class="checks-container">
+
+          <div class="checkbox-group-2">
+
+            <div class="checkbox-group">
+              <div class="checkbox-item checkbox-container">
+                <input type="checkbox" id="usePreferredName" class="real-checkbox no-commit save-checkbox">
+                <span class="custom-checkbox checkmark"></span>
+                <label for="usePreferredName">Preferred Name</label>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item checkbox-container">
+                  <input type="checkbox" id="includeMiddleName" class="real-checkbox no-commit save-checkbox"> 
+                  <span class="custom-checkbox checkmark"></span>
+                  <label for="includeMiddleName">Middle Name</label>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        <p id="cl-tip">Tip: Create new file name or delete / move existing file.</p>
+        <input type="text" class="no-commit" id="fileName" placeholder="File name only, no .pdf necessary">
+        <textarea class="no-commit" id="textToPdf" placeholder="Your text here..." style="height:200px;"></textarea>        
+        <button id="download" class="btn btn-primary">Download as PDF</button>
+      </div>
+  </section>
+  
+
+
   <div id="contact"></div>
   <section class="page-section">
     <div id="container-contact">
@@ -636,7 +709,7 @@
   <div class="page-section bg-primary text-white mb-0" id="about">
     <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
 
-    <div class="container">
+    <div class="container container-2">
       <!-- Icon Divider-->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
@@ -694,6 +767,7 @@
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                     href="#portfolio">Profile</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#chatBot">Chat Bot</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cover-letter">Cover Letter</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="socials-btn" href="legal.html">Legal</a></li>
@@ -741,11 +815,13 @@
 
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
   <script src="js/copy-value.js"></script>
   <script src="js/navbar.js"></script>
   <script src="js/chat-web.js"></script>
+  <script src="js/cover-letter.js"></script>
   <script src="js/add-section.js"></script>
   <script src="js/footer.js"></script>
 

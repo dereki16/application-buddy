@@ -98,6 +98,27 @@ $(document).ready(function() {
             }
         }
         
+    } else if ($(this).closest('#cover-letter').length) {
+        let $nextInput = $(this).nextAll(':input, textarea').first();
+        if (e.which == 13) {
+            e.preventDefault();
+            if ($(this).is('#textToPdf')) {
+                $('#download').click();
+            }
+            else {
+                if ($nextInput.length && !$nextInput.closest('#yourSpecificContainer').length) {
+                    $nextInput.focus();
+                }
+                const isLastInput = $(this).is(':last-of-type') && $(this).is('textarea');
+                if (!isLastInput) {
+                    let inputs = $('#cover-letter :input:visible, #cover-letter textarea:visible');
+                    let currentIndex = inputs.index(this);
+                    if (currentIndex + 1 < inputs.length && !$(this).closest('#yourSpecificContainer').length) {
+                        inputs.eq(currentIndex + 1).focus();
+                    }
+                }
+            }
+        }
     } else if ($(this).hasClass('.sectionsContainer')) {
       const parent = $(this).closest('.form-group');
       const labelValue = parent.find('.committedLabel').val();
