@@ -24,27 +24,7 @@ const {Configuration, OpenAIApi} = require("openai");
 const helmet = require("helmet");
 const app = express();
 
-app.use(helmet({
-  contentSecurityPolicy: {
-    useDefaults: true,
-    directives: {
-      "script-src": ["'self'", "https://use.fontawesome.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net"],
-      "img-src": ["'self'", "data:"],
-      "style-src": ["'self'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com"],
-      "font-src": ["'self'", "https://use.fontawesome.com", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
-    },
-  },
-  referrerPolicy: {
-    policy: "no-referrer",
-  },
-  hsts: {
-    maxAge: 86400,
-    includeSubDomains: true,
-  },
-  frameguard: {
-    action: "deny",
-  },
-}));
+app.use(helmet());
 const openai = new OpenAIApi(new Configuration({
   apiKey: functions.config().openai.key,
 }));
