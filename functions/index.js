@@ -24,16 +24,27 @@ const {Configuration, OpenAIApi} = require("openai");
 const helmet = require("helmet");
 const app = express();
 
-app.use(helmet());
-
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' https://use.fontawesome.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://use.fontawesome.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data:;");
-  res.setHeader("X-Frame-Options", "SAMEORIGIN");
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  res.setHeader("Permissions-Policy", "geolocation=(), microphone=()");
-  next();
-});
+app.use(helmet({
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "script-src": ["'self'", "https://use.fontawesome.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net"],
+      "img-src": ["'self'", "data:"],
+      "style-src": ["'self'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com"],
+      "font-src": ["'self'", "https://use.fontawesome.com", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+    },
+  },
+  referrerPolicy: {
+    policy: "no-referrer",
+  },
+  hsts: {
+    maxAge: 86400,
+    includeSubDomains: true,
+  },
+  frameguard: {
+    action: "deny",
+  },
+}));
 const openai = new OpenAIApi(new Configuration({
   apiKey: functions.config().openai.key,
 }));
