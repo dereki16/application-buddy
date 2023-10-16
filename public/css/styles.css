@@ -12956,6 +12956,9 @@ input {
 /* Add this to your CSS file */
 
 input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
 textarea {
   width: 100%; /* Ensuring that input and textarea take 100% width of their container */
   margin-bottom: 10px; /* Providing some space below each element */
@@ -12966,7 +12969,7 @@ textarea {
 }
 
 textarea {
-  height: 100px; /* Setting a fixed height for textarea */
+  height: 150px; /* Setting a fixed height for textarea */
   resize: vertical; /* Allowing vertical resizing of textarea */
   padding: 10px;
 
@@ -12974,6 +12977,9 @@ textarea {
 
 /* Additional styles for focused elements */
 input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
 textarea:focus {
   border-color: #4CAF50; /* Changing border color on focus */
   outline: none; /* Removing the default outline on focus */
@@ -13389,6 +13395,7 @@ header h5 strong {
 #logo {
   margin-right: 10px;
   margin-bottom: 10px;
+  width: 30px;
 }
 .nav-link.active {
     color: black; 
@@ -13463,7 +13470,6 @@ header h5 strong {
 }
 #chatBot {
     border-top: 10px solid #3ebc9d;
-  border-bottom: 10px solid #3ebc9d;
 }
 #about .container {
   background-color: #2d3f50;
@@ -13473,7 +13479,7 @@ header h5 strong {
 }
 #ty-about {
   background-color: #2d3f50;
-  padding: 100px 20px;
+  padding: 50px 20px;
   border-top: 10px solid #3ebc9d;
   border-bottom: 10px solid #3ebc9d;
 }
@@ -13485,6 +13491,9 @@ header h5 strong {
 }
 #about {
   border-radius: 10px;
+}
+#ty-about, #portfolio, #privacy {
+  border-top: 10px solid #3ebc9d;
 }
 #ty-about-section {
   background-color: #3ebc9d;
@@ -13603,9 +13612,12 @@ header h5 strong {
 .container-2 {
    border: 15px solid #2f363f;
 }
+#contact {
+  border-top: 10px solid #3ebc9d;
+}
 
 #cover-letter {
-  border-bottom: 10px solid #3ebc9d;
+  border-top: 10px solid #3ebc9d;
   background-color: #2f363f;
 }
 #cover-letter input, #cover-letter textarea {
@@ -13667,9 +13679,12 @@ header h5 strong {
   font-size: 24px; 
   color: #ffffff;  
   background-color: #1b1f24; 
-  padding: 8px; 
+  padding: 4px;
+  padding-bottom: 9px;
   border-radius: 10px; 
   z-index: 1000; 
+  width: 3%;
+  text-align: center;
 }
 .social-icon:hover {
   background-color: black;
@@ -13733,4 +13748,65 @@ header h5 strong {
 }
 .committed{
   outline: none;
+}
+#side-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  padding: 100px 10px;
+  overflow-y: auto;
+  text-align: right;
+}
+
+#side-navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#side-navbar li {
+  margin-bottom: 10px;
+}
+
+#side-navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: block;
+  padding-left: 15px;
+  padding-top: 14px;
+}
+
+#side-navbar a.side-active {
+  font-size: 3vh;
+  color: #3ebc9d;
+}
+#side-navbar {
+  transform: translateX(100%);
+  transition: transform 0.5s ease-out, opacity 0.5s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#side-navbar.active {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  transition: transform 0.5s ease-out, opacity 0.5s linear;
+}
+
+.btn-xl i {
+  font-size: 40px;
+  padding-right: 10px;
+}
+
+@media (max-width: 1100px) {
+  #side-navbar {
+    display: none;
+  }
+  #contact-suggestion {
+    padding: 0px 10px;
+  }
 }

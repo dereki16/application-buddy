@@ -29,7 +29,11 @@ const openai = new OpenAIApi(new Configuration({
 }));
 
 const cors = require("cors");
-app.use(cors());
+const corsOptions = {
+  origin: "https://application-bud.web.app/",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.post("/get-openai-response", async (req, res) => {
@@ -42,7 +46,9 @@ app.post("/get-openai-response", async (req, res) => {
         "provides concise advice primarily " +
         "on job related info. " +
         "Please provide responses in less than 120 words. " +
-        "In lists of more than 5 items, each item should be concise. "},
+        "In lists of more than 5 items, each item should be concise. " +
+        "For cover letters, keep them 2-3 paragraphs max. " +
+        "Don't use flowery language"},
         {role: "user", content: userMessage},
       ],
       max_tokens: 200,

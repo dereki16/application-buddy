@@ -44,50 +44,83 @@ window.addEventListener('DOMContentLoaded', event => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const sections = [
-    document.getElementById('portfolio'),
-    document.getElementById('chatBot'),
-    document.getElementById('cover-letter'),
-    document.getElementById('contact'),
-    document.getElementById('about'),
-    document.getElementById('privacy')
-].filter(section => section !== null);
+$(document).ready(function() {
+  // Define section IDs
+  const sectionIDs = [
+      'portfolio',
+      'chatBot',
+      'cover-letter',
+      'contact',
+      'ty-about-section',
+      'privacy',
+      'personalInfoContainer',
+      'educationalContainer',
+      'linksContainer',
+      'jobInfoContainer',
+      'certsContainer',
+      'awardsContainer',
+      'jobRefContainer',
+      'moreContainer',
+      'answersContainer'
+  ];
 
+  // Cache sections
+  const sections = sectionIDs.map(id => $('#' + id)).filter(section => section.length);
 
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  function deactivateAllLinks() {
-      navLinks.forEach(link => link.classList.remove('active'));
-  }
-
-  window.addEventListener('scroll', function() {
-      let currentSection = null;
-
-      sections.forEach(section => {
-        if (!section) return;
-          let threshold = 100;  
-          const sectionTop = section.offsetTop;
-          if (window.scrollY >= sectionTop - threshold) {
-              currentSection = section;
-          }
-      });
-
-      deactivateAllLinks();
-      if (currentSection) {
-          const currentLink = document.querySelector(`.nav-link[href="#${currentSection.id}"]`);
-          if (currentLink) {
-              currentLink.classList.add('active');
-          }
-      }
+  // Click event for smooth scroll - main navbar
+  $("#navbar a").on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top - 70
+      }, 500);
   });
+
+  // Click event for smooth scroll - sidebar
+  $("#side-navbar a").on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top - 70
+      }, 100);
+  });
+
+  // Handling the scroll event
+  $(window).scroll(function() {
+    let fromTop = $(window).scrollTop() + 80;
+    let currentSection = null;
+    
+    sections.forEach(section => {
+        let offset = 0;
+        if (section.attr('id') === 'answersContainer') {
+            offset = 200;
+        } else if (section.attr('id') === 'personalInfoContainer') {
+            offset = 300;  // or whatever value you desire for this section
+        }        
+        if (section.offset().top - offset <= fromTop && section.offset().top + section.height() > fromTop) {
+            currentSection = section;
+        }
+    });
+
+    // Removing and adding active class in side navbar
+    $('#side-navbar a').removeClass('side-active');
+    if (currentSection) {
+        $('#side-navbar a[href="#' + currentSection.attr('id') + '"]').addClass('side-active');
+    }
+
+    // Show side-navbar only when inside #portfolio
+    let portfolioTop = $('#portfolio').offset().top;
+    var portfolioBottom = portfolioTop + $('#portfolio').outerHeight() - 350;
+
+    if (fromTop >= portfolioTop && fromTop <= portfolioBottom) {
+        $('#side-navbar').addClass('active');
+    } else {
+        $('#side-navbar').removeClass('active');
+    }
 });
 
-$(document).ready(function() {
+  // Navigate to section on direct access with hash in URL
   if (window.location.hash) {
-      const hash = window.location.hash;
       $('html, body').animate({
-          scrollTop: $(hash).offset().top - 100
-      }, 800);  
+          scrollTop: $(window.location.hash).offset().top - 70
+      }, 800);
   }
 });

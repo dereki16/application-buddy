@@ -21,22 +21,24 @@
   <meta name="twitter:image" content="https://application-bud.web.app/img/appbuddy-cover.png" alt="Cover image of green hexagons.">
 
   <title>Application Bud</title>
-  <!-- Favicon-->
-  <!-- Font Awesome icons (free version)-->
-  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-    type="text/css" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="css/styles.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://use.fontawesome.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://use.fontawesome.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data:;">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/regular.min.css" integrity="sha512-3YMBYASBKTrccbNMWlnn0ZoEOfRjVs9qo/dlNRea196pg78HaO0H/xPPO2n6MIqV6CgTYcWJ1ZB2EgWjeNP6XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/regular.min.css" integrity="sha512-3YMBYASBKTrccbNMWlnn0ZoEOfRjVs9qo/dlNRea196pg78HaO0H/xPPO2n6MIqV6CgTYcWJ1ZB2EgWjeNP6XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css" integrity="sha512-bdTSJB23zykBjGDvyuZUrLhHD0Rfre0jxTd0/jpTbV7sZL8DCth/88aHX0bq2RV8HK3zx5Qj6r2rRU/Otsjk+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/brands.min.css" integrity="sha512-L+sMmtHht2t5phORf0xXFdTC0rSlML1XcraLTrABli/0MMMylsJi3XA23ReVQkZ7jLkOEIMicWGItyK4CAt2Xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" integrity="sha384-OQZMXd1IIy6zS1Y0j1tKZ4j37NCNGq5U7mFhJMAXWDTeW3iEmIDoGKZbS3MYPksp" crossorigin="anonymous" type="text/css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" integrity="sha384-ZX4AIKo+2H9Y/LHtxb4iuF1wp/mymC1+VNc010sqFXW2zQ+IPsUCnsWRf5eJneS+" crossorigin="anonymous" type="text/css" />
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link id="app-bud" rel="icon" href="img/resume.png">
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" integrity="sha384-/KtSGZ3Y6FUl+HbMMbSX94R0r8VGddnyrvYXTOQ9LuO3HxckA9kzrCQUafZZwJB3" crossorigin="anonymous"></script>
 
+  <link href="css/styles.css" rel="stylesheet" />
+  <link id="app-bud" rel="icon" href="img/resume.png">
 </head>
 
 
@@ -44,7 +46,7 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="img/resume.png" id="logo" style="width:30px; height:30px;">Application Bud</a>
+      <a class="navbar-brand" href="index.html"><img src="img/resume.png" id="logo">Application Bud</a>
       <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
         data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -57,19 +59,36 @@
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#chatBot">Chat Bot</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cover-letter">Cover Letter</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#ty-about-section">About</a></li>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <div id="side-navbar">
+    <ul>
+        <li><a href="#personalInfoContainer">Personal Info</a></li>
+        <li><a href="#educationalContainer">Education</a></li>
+        <li><a href="#linksContainer">Links</a></li>
+        <li><a href="#jobInfoContainer">Experience</a></li>
+        <li><a href="#certsContainer">Certificates</a></li>
+        <li><a href="#awardsContainer">Awards</a></li>
+        <li><a href="#jobRefContainer">References</a></li>
+        <li><a href="#moreContainer">More</a></li>
+        <li><a href="#answersContainer">Answers</a></li>
+    </ul>
+</div>
+
+
+
+
   <a href="#socials" class="social-icon">
     <i class="fa-solid fa-code"></i>
   </a>
 
   <!-- Masthead-->
-  <header class="masthead bg-primary text-white text-center">
+  <header id="header-intro" class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Heading-->
       <h1 class="masthead-heading text-uppercase mb-0">Application Bud</h1>
@@ -175,7 +194,7 @@
       <!-- Portfolio Grid Items-->
       <div class="row justify-content-center">
         <!-- Portfolio Item 1-->
-        <div id="personalInfoContainer">
+        <div id="personalInfoContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Personal Info</h2>
             <div id="notification" class="hidden">
@@ -183,7 +202,7 @@
             </div>
             <div class="form-group">
               <label for="firstName">First Name:</label>
-              <input type="text" class="form-control committable" id="firstName" placeholder="John">
+              <input type="text" class="form-control committable" id="firstName" placeholder="John" autocomplete="on">
             </div>
             <div class="form-group">
               <label for="middleName">Middle Name:</label>
@@ -203,7 +222,7 @@
             </div>
             <div class="form-group">
               <label for="emailForm">Email:</label>
-              <input type="email" class="form-control committable" id="emailForm" placeholder="jdoe@gmail.com">
+              <input type="email" class="form-control committable" id="emailForm" placeholder="jdoe@gmail.com" autocomplete="on">
             </div>
             <div class="form-group">
               <label for="phoneNumber">Phone Number:</label>
@@ -211,7 +230,7 @@
             </div>
             <div class="form-group">
               <label for="address">Address:</label>
-              <input type="text" class="form-control committable" id="address" placeholder="123 Circle Avenue">
+              <input type="text" class="form-control committable" id="address" placeholder="123 Circle Avenue" autocomplete="shipping street-address">
             </div>
             <div class="form-group">
               <label for="city">City:</label>
@@ -233,7 +252,7 @@
           </div>
         </div>
 
-        <div id="educationalContainer">
+        <div id="educationalContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Education</h2>
             <div class="form-group">
@@ -263,7 +282,7 @@
           </div>
         </div>
 
-        <div id="linksContainer">
+        <div id="linksContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Links</h2>
             <div class="form-group">
@@ -281,7 +300,7 @@
           </div>
         </div>
 
-        <div id="jobInfoContainer">
+        <div id="jobInfoContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Technical Experience</h2>
             <div class="form-group">
@@ -367,7 +386,7 @@
           </div>
         </div>
 
-        <div id="certsContainer">
+        <div id="certsContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Certifications</h2>
             <h3>Certification 1</h3>
@@ -408,7 +427,7 @@
           </div>
         </div>
 
-        <div id="awardsContainer">
+        <div id="awardsContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">Awards & Honors</h2>
             <h3>Award 1</h3>
@@ -449,7 +468,7 @@
           </div>
         </div>
 
-        <div id="jobRefContainer">
+        <div id="jobRefContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">References</h2>
             <div class="form-group">
@@ -508,7 +527,7 @@
           </div>
         </div>
 
-        <div id="moreContainer">
+        <div id="moreContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary">More</h2>
             <h3>Skills</h3>
@@ -543,7 +562,7 @@
           </div>
         </div>
 
-        <div id="answersContainer">
+        <div id="answersContainer" class="section">
           <div class="col-12 mx-auto">
             <h2 class="page-section-heading text-uppercase text-secondary mb-0">Common Questions</h2>
             <div class="form-group">
@@ -584,7 +603,7 @@
           </div>
           <div class="form-group">
             
-            <label id="chatLabel" for="chat">Enter whatever queries you might have!</label>
+            <p class="text-white" id="chatLabel">Enter whatever queries you might have!</p>
             <div id="chatLogContainer" class="chat-log"></div>
 
             <div id="inputArea">
@@ -599,67 +618,69 @@
   </section>
 
   <section class="page-section" id="cover-letter">
-    <h2 class="page-section-heading text-center text-uppercase text-white">Cover Letter</h2>
-    <!-- Icon Divider-->
-    <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
-    </div>
-    <h3 class="text-center text-white" id="contact-suggestion">Need a quick cover letter PDF?</h3>
-      <div id="cl-card" class="col-12 mx-auto">
-        <div class="checks-container">
-          <p id="cl-checkbox">Include:</p>
-          <div class="checkbox-group-1">
-
-            <div class="checkbox-group">
-              <div class="checkbox-item checkbox-container">
-                <input type="checkbox" id="includePortfolio" class="real-checkbox no-commit save-checkbox">
-                <span class="custom-checkbox checkmark"></span>
-                <label for="includePortfolio">Portfolio</label>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-item checkbox-container">
-                  <input type="checkbox" id="includeEmail" class="real-checkbox no-commit save-checkbox"> 
-                  <span class="custom-checkbox checkmark"></span>
-                  <label for="includeEmail">Email</label>
-              </div>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-item checkbox-container">
-                  <input type="checkbox" id="includePhone" class="real-checkbox no-commit save-checkbox">
-                  <span class="custom-checkbox checkmark"></span>
-                  <label for="includePhone">Phone</label>
-              </div>
-            </div>
-          </div>
+    <div class="container">
+      <h2 class="page-section-heading text-center text-uppercase text-white">Cover Letter</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+      <h3 class="text-center text-white" id="contact-suggestion">Need a quick cover letter PDF?</h3>
+        <div id="cl-card" class="col-12 mx-auto">
           <div class="checks-container">
+            <p id="cl-checkbox">Include:</p>
+            <div class="checkbox-group-1">
 
-          <div class="checkbox-group-2">
-
-            <div class="checkbox-group">
-              <div class="checkbox-item checkbox-container">
-                <input type="checkbox" id="usePreferredName" class="real-checkbox no-commit save-checkbox">
-                <span class="custom-checkbox checkmark"></span>
-                <label for="usePreferredName">Preferred Name</label>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-item checkbox-container">
-                  <input type="checkbox" id="includeMiddleName" class="real-checkbox no-commit save-checkbox"> 
+              <div class="checkbox-group">
+                <div class="checkbox-item checkbox-container">
+                  <input type="checkbox" id="includePortfolio" class="real-checkbox no-commit save-checkbox">
                   <span class="custom-checkbox checkmark"></span>
-                  <label for="includeMiddleName">Middle Name</label>
+                  <label for="includePortfolio">Portfolio</label>
+              </div>
+              <div class="checkbox-group">
+                <div class="checkbox-item checkbox-container">
+                    <input type="checkbox" id="includeEmail" class="real-checkbox no-commit save-checkbox"> 
+                    <span class="custom-checkbox checkmark"></span>
+                    <label for="includeEmail">Email</label>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <div class="checkbox-item checkbox-container">
+                    <input type="checkbox" id="includePhone" class="real-checkbox no-commit save-checkbox">
+                    <span class="custom-checkbox checkmark"></span>
+                    <label for="includePhone">Phone</label>
+                </div>
               </div>
             </div>
-          </div>
-          </div>
+            <div class="checks-container">
+
+              <div class="checkbox-group-2">
+
+                <div class="checkbox-group">
+                  <div class="checkbox-item checkbox-container">
+                    <input type="checkbox" id="usePreferredName" class="real-checkbox no-commit save-checkbox">
+                    <span class="custom-checkbox checkmark"></span>
+                    <label for="usePreferredName">Preferred Name</label>
+                </div>
+                <div class="checkbox-group">
+                  <div class="checkbox-item checkbox-container">
+                      <input type="checkbox" id="includeMiddleName" class="real-checkbox no-commit save-checkbox"> 
+                      <span class="custom-checkbox checkmark"></span>
+                      <label for="includeMiddleName">Middle Name</label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         </div>
         <p id="cl-tip">Tip: Create new file name or delete / move existing file.</p>
         <input type="text" class="no-commit" id="fileName" placeholder="File name only, no .pdf necessary">
-        <textarea class="no-commit" id="textToPdf" placeholder="Your text here..." style="height:200px;"></textarea>        
+        <textarea class="no-commit" id="textToPdf" placeholder="Your text here..."></textarea>        
         <button id="download" class="btn btn-primary">Download as PDF</button>
       </div>
+    </div>
   </section>
   
 
@@ -681,18 +702,18 @@
         <form id="contact-form" action="https://formsubmit.co/jobappbuddy@gmail.com" method="POST">
           <div class="form-group">
             
-            <label for="fname">Name*</label>
-            <input class="form-control" type="text" id="name" name="name" placeholder="Your name..">
+            <label for="name">Name*</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="Your name.." autocomplete="on">
         
             <label for="email">Email*</label>
-            <input class="form-control" type="text" id="email" name="email" placeholder="Your email address.." required>
+            <input class="form-control" type="text" id="email" name="email" placeholder="Your email address.." autocomplete="on" required>
             
             <label for="subject">Subject*</label>
             <input class="form-control" type="text" id="subject" name="subject" placeholder="Say hello!">
             <input type="hidden" name="_subject" value="New submission!">
 
             <label for="message">Message*</label>
-            <textarea class="form-control" name="message" id="message" placeholder="Write something.." style="height:200px" required></textarea>
+            <textarea class="form-control" name="message" id="message" placeholder="Write something.."required></textarea>
           
             <input type="hidden" name="_next" value="https://application-bud.web.app/thank-you.html">
             <input class="btn btn-primary" type="submit" id="submit-form" value="Submit">
@@ -733,27 +754,24 @@
               <br><br>
             <h3 class="lead">Let's Connect!</h3>
             Explore my socials and dive into my portfolio and other projects below. And hey, while I normally drink home brew, feel free to<a id="coffee"
-            href="https://www.buymeacoffee.com/dereki" aria-label="If you want - buy me a coffee here." target="_blank"> buy me a coffee </a>if you're feeling generous.</p>
+            href="https://www.buymeacoffee.com/dereki" aria-label="If you want - buy me a coffee here." target="_blank" rel="noopener noreferrer"> buy me a coffee </a>if you're feeling generous.</p>
           </div>
         </div>
         
       </div>
     </div>
     <!-- About Section Button-->
-    <div class="button-container socials">
-      <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/" aria-label="Link to download the bootstrap template used here." target="_blank">
+    <div class="button-container socials text-center mt-4">
+      <a class="btn btn-xl btn-outline-light d-flex align-items-center justify-content-center me-2" href="https://startbootstrap.com/theme/freelancer/" aria-label="Link to download the bootstrap template used here." target="_blank" rel="noopener noreferrer">
           <i class="fas fa-download me-2"></i>
-          Boostrap!
-        </a>
-      </div>
-      <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://github.com/dereki16/application-buddy" aria-label="Link to my Github repo for this web app." target="_blank">
+          <span class="icon-text">Bootstrap!</span>
+      </a>
+      <a class="btn btn-xl btn-outline-light d-flex align-items-center justify-content-center" href="https://github.com/dereki16/application-buddy" aria-label="Link to my Github repo for this web app." target="_blank" rel="noopener noreferrer">
           <i class="fas fa-brands fa-github me-2"></i>
-          Github!
-        </a>
-      </div>
+          <span class="icon-text">Github!</span>
+      </a>
     </div>
+  
     </div>
   </div>
   </section>
@@ -769,8 +787,8 @@
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#chatBot">Chat Bot</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cover-letter">Cover Letter</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="socials-btn" href="legal.html">Legal</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#ty-about-section">About</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="legal.html">Legal</a></li>
             </ul>
         </div>
       </div>
@@ -781,16 +799,16 @@
         <div class="col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center align-items-center"> 
           <h4 class="text-uppercase mb-4">Around the Web</h4>
           <div class="social-container">
-          <a class="btn btn-outline-light btn-social mx-1" href="https://derekiniguez.com/" aria-label="Check out my portfolio here!" title="Check out my portfolio here!" target="_blank"><i
+          <a class="btn btn-outline-light btn-social mx-1" href="https://derekiniguez.com/" aria-label="Check out my portfolio here!" title="Check out my portfolio here!" target="_blank" rel="noopener noreferrer"><i
               class="fas fa-fw fa-laptop-code"></i></a>
-          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/derek-iniguez/" aria-label="Let's connect on LinkedIn here!" title="Let's connect on LinkedIn here!" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
-          <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/dereki16" aria-label="Come see my Github repos here." title="Come see my Github repos here." target="_blank"><i
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/derek-iniguez/" aria-label="Let's connect on LinkedIn here!" title="Let's connect on LinkedIn here!" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-linkedin-in"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/dereki16" aria-label="Come see my Github repos here." title="Come see my Github repos here." target="_blank" rel="noopener noreferrer"><i
               class="fab fa-fw fa-github"></i></a>
           <a class="btn btn-outline-light btn-social mx-1"
-            href="https://www.youtube.com/channel/UC1syY6LwUp01hJX7zBARzxw" aria-label="Check out my youtube vids here." title="Check out my youtube vids here." target="_blank"><i
+            href="https://www.youtube.com/channel/UC1syY6LwUp01hJX7zBARzxw" aria-label="Check out my youtube vids here." title="Check out my youtube vids here." target="_blank" rel="noopener noreferrer"><i
               class="fab fa-fw fa-youtube"></i></a>
           <a class="btn btn-outline-light btn-social mx-1"
-            href="https://play.google.com/store/apps/details?id=com.DerekIniguez.Fragmented" aria-label="Download my mobile game on Android here!" title="Download my mobile game on Android here!" target="_blank"><i
+            href="https://play.google.com/store/apps/details?id=com.DerekIniguez.Fragmented" aria-label="Download my mobile game on Android here!" title="Download my mobile game on Android here!" target="_blank" rel="noopener noreferrer"><i
               class="fab fa-fw fa-android"></i></a>
         </div>
         </div>
@@ -813,10 +831,6 @@
   <div id="page-bottom"></div>
 
 
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
   <script src="js/copy-value.js"></script>
   <script src="js/navbar.js"></script>
