@@ -2,10 +2,9 @@
   "name": "application-buddy",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "node chat.js"
+    "dev": "node app.js"
   },
   "keywords": [],
   "author": "",

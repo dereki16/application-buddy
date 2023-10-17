@@ -21,17 +21,15 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const {Configuration, OpenAIApi} = require("openai");
-const helmet = require("helmet");
 const app = express();
 
-app.use(helmet());
 const openai = new OpenAIApi(new Configuration({
   apiKey: functions.config().openai.key,
 }));
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://application-bud.web.app/",
+  origin: ["https://application-bud.web.app", "https://us-central1-application-bud.cloudfunctions.net"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
