@@ -29,9 +29,13 @@ const openai = new OpenAIApi(new Configuration({
 
 const cors = require("cors");
 const corsOptions = {
-  origin: ["https://application-bud.web.app", "https://us-central1-application-bud.cloudfunctions.net"],
-  optionsSuccessStatus: 200,
+  origin: [
+    "https://application-bud.web.app",
+    "https://us-central1-application-bud.cloudfunctions.net",
+  ],
+  methods: "GET,POST,PUT",
 };
+
 app.use(cors(corsOptions));
 
 app.use(express.json());
@@ -42,17 +46,22 @@ app.post("/get-openai-response", async (req, res) => {
     const apiResponse = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        {role: "system", content: "You are an assistant that " +
-        "provides concise advice primarily " +
-        "on job related info. " +
-        "Please provide responses in less than 120 words. " +
-        "In lists of more than 5 items, each item should be concise. " +
-        "For cover letters, keep them 2-3 paragraphs max. " +
-        "Don't use flowery language"},
+        {
+          role: "system",
+          content: "You are an assistant that " +
+            "provides concise advice primarily " +
+            "on job related info. " +
+            "Please provide responses in less than 120 words. " +
+            "In lists of more than 5 items, each item should be concise. ",
+        },
         {role: "user", content: userMessage},
       ],
       max_tokens: 200,
     });
+
+    // Set the CORS headers in the response
+    res.set(corsOptions);
+
     res.json({openaiResponse: apiResponse.data.choices[0].message.content});
   } catch (error) {
     console.error("Error talking to OpenAI API: ", error);
