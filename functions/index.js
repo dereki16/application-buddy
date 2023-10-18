@@ -39,8 +39,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+const rateLimit = require("express-rate-limit");
 
-app.post("/get-openai-response", async (req, res) => {
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 25,
+});
+
+app.post("/get-openai-response", apiLimiter, async (req, res) => {
   const userMessage = req.body.userMessage;
   try {
     const apiResponse = await openai.createChatCompletion({
@@ -64,9 +70,55 @@ app.post("/get-openai-response", async (req, res) => {
 
     res.json({openaiResponse: apiResponse.data.choices[0].message.content});
   } catch (error) {
-    console.error("Error talking to OpenAI API: ", error);
-    res.status(500).send("Error talking to OpenAI API");
+    const redirectUrl = "https://application-bud.web.app/error.html";
+    res.status(200).send(`<script>window.location.href =` +
+    `"${redirectUrl}";</script>`);
   }
 });
 
 exports.chat = functions.https.onRequest(app);
+
+// Email function
+const nodemailer = require("nodemailer");
+const email = "jobappbuddy@gmail.com";
+const MAIL_PASS = functions.config().gmail.password;
+
+// Create a transport object using Gmail SMTP
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: email,
+    pass: MAIL_PASS,
+  },
+});
+
+exports.sendEmail = functions.https.onRequest(async (req, res) => {
+  try {
+    const formData = req.body;
+    console.log("Email:", email);
+    console.log("Password:", MAIL_PASS);
+
+    // Check if formData is empty or not
+    if (!formData) {
+      const redirectUrl = "https://application-bud.web.app/error.html";
+      res.status(200).send(`<script>window.location.href =` +
+      `"${redirectUrl}";</script>`);
+    }
+    // Construct the email message
+    const mailOptions = {
+      from: formData.email,
+      to: email,
+      subject: "New Mail! - " + formData.subject,
+      text: `Name:\n${formData.name}\n\nMessage:\n${formData.message}`,
+    };
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    const redirectUrl = "https://application-bud.web.app/thank-you.html";
+    res.status(200).send(`<script>window.location.href =` +
+    `"${redirectUrl}";</script>`);
+  } catch (error) {
+    const redirectUrl = "https://application-bud.web.app/error.html";
+    res.status(200).send(`<script>window.location.href =` +
+    `"${redirectUrl}";</script>`);
+  }
+});
